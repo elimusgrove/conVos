@@ -22,7 +22,13 @@ if (isset($_GET['sentence'])) {
     // INCLUDES, NATURAL LANGUAGE PROCESSING API SETUP
     putenv("GOOGLE_APPLICATION_CREDENTIALS=/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json");
 
+    // Load the API
     require '/home3/hsnkwamy/public_html/vendor/autoload.php';
+
+    // Connect to database
+    $conn = mysqli_connect('hsn.kwa.mybluehost.me', 'hsnkwamy', '8Rd23K*%', 'hsnkwamy_conVo');
+
+
 
     // Create the Natural Language client
     $languageServiceClient = new LanguageServiceClient();
@@ -71,8 +77,13 @@ if (isset($_GET['sentence'])) {
 // ##################################################
 // PROCESSING KEYWORD REQUEST
 if (isset($_GET['keyword'])) {
+
+    // Invalid keyword id
+    if (!$_GET['id']) {
+        exit(1);
+    }
+
     echo json_encode(array($_GET['keyword'], $_GET['id']));
-    exit(1);
 }
 
 //$return = array();
