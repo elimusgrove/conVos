@@ -7,20 +7,6 @@
 namespace Google\Cloud\Samples\Auth;
 //// Includes the autoloader for libraries installed with composer
 require '/home3/hsnkwamy/public_html/vendor/autoload.php';
-//
-//// Imports the Google Cloud client library
-//use Google\Cloud\Language\LanguageClient;
-//$language = new LanguageClient(['keyFile' => json_decode(file_get_contents("/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json"), true)]);
-//
-//// The text to analyze
-//$text = $_GET['string'];
-//
-//// Detects the sentiment of the text
-//$annotation = $language->analyzeSentiment($text);
-//$sentiment = $annotation->sentiment();
-//
-//echo 'Text: ' . $text . '
-//Sentiment: ' . $sentiment['score'] . ', ' . $sentiment['magnitude'];
 
 // Imports the Cloud Storage client library.
 use Google\Cloud\Storage\StorageClient;
@@ -33,7 +19,18 @@ $config = [
 ];
 $storage = new StorageClient($config);
 
-# Make an authenticated API request (listing storage buckets)
-foreach ($storage->buckets() as $bucket) {
-    printf('Bucket: %s' . PHP_EOL, $bucket->name());
-}
+// Imports the Google Cloud client library
+use Google\Cloud\Language\LanguageClient;
+$language = new LanguageClient();
+
+// The text to analyze
+$text = $_GET['string'];
+
+// Detects the sentiment of the text
+$annotation = $language->analyzeSentiment($text);
+$sentiment = $annotation->sentiment();
+
+echo 'Text: ' . $text . '
+Sentiment: ' . $sentiment['score'] . ', ' . $sentiment['magnitude'];
+
+// ['keyFile' => json_decode(file_get_contents("/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json"), true)]
