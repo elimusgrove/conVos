@@ -107,16 +107,20 @@ if (isset($_GET['keyword'])) {
         $result = curl_exec($curl);
         curl_close($curl);
 
-        echo $result;
+//        echo $result;
 
         // Filter html
         $dom_results = new simple_html_dom();
         $dom_results->load($result);
 
         // Get paragraph elements
-//        foreach($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
-//            echo $par->plaintext . '<br/>';
-//        }
-
+        $i = 0;
+        foreach($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
+            if ($i > 10) {
+                break;
+            }
+            $i++;
+            echo $par->plaintext . '<br/>';
+        }
     }
 }
