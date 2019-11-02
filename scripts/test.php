@@ -1,11 +1,7 @@
 <?php
 
 if (isset($_GET)) {
-    echo json_encode(array('string'=>strtoupper($_GET['string'])));
+    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'Conley has no balls')));
 }
-
-//if (isset($_POST)) {
-//    echo json_encode(array(strtoupper($_POST['string'])));
-//}
 
 ?>
