@@ -116,7 +116,7 @@ if (isset($_GET['keyword'])) {
         // Get paragraph elements
         $i = 0;
         foreach($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
-            if ($i > 10) {
+            if ($i > 3) {
                 break;
             }
             $i++;
