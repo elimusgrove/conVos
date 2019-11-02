@@ -1,14 +1,5 @@
 <?php
 
-//printf('Name: %s' . PHP_EOL, $entity->getName());
-//printf('Type: %s' . PHP_EOL, EntityType::name($entity->getType()));
-//printf('Salience: %s' . PHP_EOL, $entity->getSalience());
-//printf('Wikipedia URL: %s' . PHP_EOL, $entity->getMetadata()->offsetGet('wikipedia_url'));
-
-//if (isset($_GET)) {
-//    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
-//}
-
 // TODO: Insert into database on receiving a sentence
 // TODO: Update database when receiving the keywords
 
@@ -104,7 +95,7 @@ if (isset($_GET['keyword'])) {
     $result = curl_exec($curl);
     curl_close($curl);
 
-    // Filter html
+    // Load library
     $dom_results = new simple_html_dom();
     $dom_results->load($result);
 
@@ -119,7 +110,10 @@ if (isset($_GET['keyword'])) {
         $return['headlines'][] = $par->plaintext;
         $i++;
     }
+
+    // Add id
     $return['id'] = $_GET['id'];
 
+    // Return values to app
     echo json_encode($return);
 }

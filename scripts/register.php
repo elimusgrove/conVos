@@ -6,6 +6,11 @@
 // Begin session
 session_start();
 
+if (isset($_GET['logoff'])) {
+    session_unset();
+    header("Location: ../index.php");
+}
+
 // Invalid request to register
 if (!isset($_POST['username']) || !isset($_POST['password'])){
     header("Location: ../index.php");
