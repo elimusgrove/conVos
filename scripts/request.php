@@ -119,7 +119,7 @@ if (isset($_GET['keyword'])) {
         $return['headlines'][] = $par->plaintext;
         $i++;
     }
-    $return[] = array('id' => $_POST['id']);
+    $return['id'] = $_POST['id'];
 
     echo json_encode($return);
 }
