@@ -169,7 +169,7 @@ nav a:hover:before {
     width: 55vw;
     height: 100vh;
     top: 0;
-    transform: skewX(-8deg);
+    transform: skewX(-10deg);
     overflow: hidden;
 }
 .left {
@@ -188,7 +188,7 @@ nav a:hover:before {
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    transform: skewX(8deg);
+    transform: skewX(10deg);
     overflow: hidden;
 }
 .left .inner {
