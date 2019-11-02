@@ -112,7 +112,7 @@ if (isset($_GET['keyword'])) {
         $dom_results->load($result);
 
         // Get paragraph elements
-        foreach($dom_results->find('p ') as $par) {
+        foreach($dom_results->find('p') as $par) {
             echo $par;
         }
 
