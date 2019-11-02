@@ -55,7 +55,7 @@ if (isset($_GET['sentence'])) {
                 // Add to return array
                 $return[] = array(
                     'word' => $entity->getName(),
-                    'id' => );
+                    'id' => 'null_id');
 //                    'type' => EntityType::name($entity->getType()),
 //                    'salience' => $entity->getSalience(),
 //                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
