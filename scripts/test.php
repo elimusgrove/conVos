@@ -4,8 +4,9 @@
 //    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
 //}
 
+namespace Google\Cloud\Samples\Auth;
 //// Includes the autoloader for libraries installed with composer
-//require '/home3/hsnkwamy/public_html/vendor/autoload.php';
+require '/home3/hsnkwamy/public_html/vendor/autoload.php';
 //
 //// Imports the Google Cloud client library
 //use Google\Cloud\Language\LanguageClient;
@@ -20,8 +21,6 @@
 //
 //echo 'Text: ' . $text . '
 //Sentiment: ' . $sentiment['score'] . ', ' . $sentiment['magnitude'];
-
-namespace Google\Cloud\Samples\Auth;
 
 // Imports the Cloud Storage client library.
 use Google\Cloud\Storage\StorageClient;
