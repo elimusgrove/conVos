@@ -50,7 +50,7 @@ if (isset($_GET['sentence'])) {
 
                 // Add to return array
                 $return['value'][] = array(
-                    'word' => $entity->getName(),
+                    'string' => $entity->getName(),
                     'id' => $id);
 //                    'type' => EntityType::name($entity->getType()),
 //                    'salience' => $entity->getSalience(),
