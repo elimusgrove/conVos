@@ -79,8 +79,8 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
                     <input style="position:relative; right:-20vw; top:25vh;" class="param" type="password" name="password" placeholder="password">
                     <br>
                     <br>
-                    <a formaction="scripts/login.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-20vw; top:6em;" href="/scripts/login.php" class="button">LOG IN</a>
-                    <a formaction="scripts/register.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-24vw; top:6em;" href="/scripts/register.php" class="button">SIGN UP</a>
+                    <input formaction="scripts/login.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-20vw; top:6em;" href="/scripts/login.php" class="button" value="LOG IN">
+                    <input formaction="scripts/register.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-24vw; top:6em;" href="/scripts/register.php" class="button" value="SIGN UP">
                 </form>
 
             </div>
