@@ -44,11 +44,11 @@ if (isset($_GET['sentence'])) {
         // Loop over entities
         foreach ($entities as $entity) {
 
-            // Filter results based on entity type
-            $type = strtolower(EntityType::name($entity->getType()));
-            if ($type != 'event' && $type != 'consumer_good' && $type != 'organization' && $type != 'person') {
-                continue;
-            }
+//            // Filter results based on entity type
+//            $type = strtolower(EntityType::name($entity->getType()));
+//            if ($type != 'event' && $type != 'consumer_good' && $type != 'organization' && $type != 'person') {
+//                continue;
+//            }
 
             // Add to return array
             $return['value'][] = array(
