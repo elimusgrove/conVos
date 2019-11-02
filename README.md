@@ -1,2 +1,2 @@
 # SiriButWorse
-Siri, but worsel
+Siri, but worse
