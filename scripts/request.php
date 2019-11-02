@@ -103,7 +103,7 @@ if (isset($_GET['keyword'])) {
     $i = 0;
     $return = array('headlines' => array());
     foreach ($result->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
-        if ($i > 3) {
+        if ($i > 10) {
             break;
         }
 
