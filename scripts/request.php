@@ -17,6 +17,7 @@ use Google\Cloud\Language\V1\Entity\Type as EntityType;
 // ##################################################
 // PROCESSING SENTENCE REQUEST
 if (isset($_GET['sentence'])) {
+    echo "HERE";
 
 
     // ##################################################
