@@ -9,4 +9,4 @@ session_start();
 
 // Reset session
 session_unset();
-header("/home3/hsnkwamy/public_html/index.php");
+header("Location: ../index.php");
