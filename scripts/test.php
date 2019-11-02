@@ -5,7 +5,7 @@ if (isset($_GET)) {
 }
 
 if (isset($_POST)) {
-    json_encode(array(strtoupper($_POST['string'])));
+    echo json_encode(array(strtoupper($_POST['string'])));
 }
 
 ?>
