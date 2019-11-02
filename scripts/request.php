@@ -83,29 +83,38 @@ if (isset($_GET['keyword'])) {
         exit(1);
     }
 
+    // Response to app
+    echo json_encode(array('id' => $_GET['id'], 'keyword' => $_GET['keyword']));
+
 
     // ##################################################
     // WEB SCRAPE PROCESSED ENTITIES
 
-    // Library to process scraped HTML
-    require 'simple_html_dom.php';
+    if (isset($_GET['test'])) {
 
-    // Begin curl request
-    $curl = curl_init();
+        // Library to process scraped HTML
+        require 'simple_html_dom.php';
 
-    // Set curl parameters
-    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . $_GET['keyword']);
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Begin curl request
+        $curl = curl_init();
 
-    // Execute curl request, close
-    $result = curl_exec($curl);
-    curl_close($curl);
+        // Set curl parameters
+        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . $_GET['keyword']);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-    // Filter html
-    $dom_results = new simple_html_dom();
-    $dom_results->load($result);
+        // Execute curl request, close
+        $result = curl_exec($curl);
+        curl_close($curl);
 
-    // Response to app
-    echo json_encode(array('id' => $_GET['id'], 'keyword' => $_GET['keyword']));
+        // Filter html
+        $dom_results = new simple_html_dom();
+        $dom_results->load($result);
+
+        // Get paragraph elements
+        foreach($dom_results->find('p ') as $par) {
+
+        }
+
+    }
 }
