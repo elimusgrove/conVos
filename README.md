@@ -1,2 +1,2 @@
-# SiriButWorse
-Siri, but worse
+# conVo
+Conversation assistant.
