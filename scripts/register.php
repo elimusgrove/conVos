@@ -32,7 +32,7 @@ if (mysqli_num_rows($dup_query) > 0) {
     exit(1);
 }
 // Insert confirmed valid user
-mysqli_query($conn, "INSERT INTO hsnkwamy.Users SET username='" . $username . "', hash='" . $hash . "'");
+mysqli_query($conn, "INSERT INTO hsnkwamy_conVo.Users SET username='" . $username . "', hash='" . $hash . "'");
 
 // Set username session var
 session_unset();
