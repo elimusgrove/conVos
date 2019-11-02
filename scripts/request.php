@@ -122,5 +122,5 @@ if (isset($_GET['keyword'])) {
     }
     $return[] = array('id' => $_POST['id']);
 
-    echo json_encode(array($return));
+    var_dump($return);
 }
