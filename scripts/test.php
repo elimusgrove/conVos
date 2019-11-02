@@ -1,11 +1,11 @@
 <?php
 
 if (isset($_GET)) {
-    echo strtoupper($_GET['string']);
+    echo array(strtoupper($_GET['string']));
 }
 
 if (isset($_POST)) {
-    echo strtoupper($_POST['string']);
+    echo array(strtoupper($_POST['string']));
 }
 
 ?>
