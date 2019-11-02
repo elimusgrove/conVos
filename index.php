@@ -7,11 +7,6 @@ var_dump($_SESSION);
 //$_SESSION['username'] = 'tester';
 //unset($_SESSION['username']);
 
-if (isset($_GET['logoff'])) {
-    session_unset();
-    header('Location: ./index.php');
-}
-
 // If user isn't logged in
 if (!isset($_SESSION['username'])) {
 // Clear Session
@@ -66,7 +61,7 @@ if (!isset($_SESSION['username'])) {
                     <?php if (!isset($_SESSION['username'])) { ?>
                     <li><a style="letter-spacing: 0.05em;" href="#sign_in">Login / Register</a></li>
                     <?php } else { ?>
-                    <li><a style="letter-spacing: 0.05em;" href="./scripts/register.php?logoff">Log out</a></li>
+                    <li><a style="letter-spacing: 0.05em;" href="./scripts/logoff.php">Log out</a></li>
                     <?php } ?>
                 </ul>
             </nav>
