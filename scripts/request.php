@@ -38,30 +38,26 @@ if (isset($_GET['sentence'])) {
             ->setContent($_GET['string'])
             ->setType(Type::PLAIN_TEXT);
 
-        echo "HERE1";
-
         // Call the analyzeEntities function
         $response = $languageServiceClient->analyzeEntities($document, []);
         $entities = $response->getEntities();
-        echo "HERE2";
 
         // Loop over entities
         foreach ($entities as $entity) {
-            echo "Looping over entities";
-//            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
-//                echo "HERE" . PHP_EOL;
-//                // Generate unique id
+            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
+                echo "HERE" . PHP_EOL;
+                // Generate unique id
 //                $id = str_replace('.', '', strval(microtime(true)));
 //                echo $id . PHP_EOL;
-//
-//                // Add to return array
-//                $return[] = array(
-//                    'word' => $entity->getName(),
-//                    'id' => 'null_id');
-////                    'type' => EntityType::name($entity->getType()),
-////                    'salience' => $entity->getSalience(),
-////                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
-//            }
+
+                // Add to return array
+                $return[] = array(
+                    'word' => $entity->getName(),
+                    'id' => 'null_id');
+//                    'type' => EntityType::name($entity->getType()),
+//                    'salience' => $entity->getSalience(),
+//                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
+            }
         }
     } finally {
         $languageServiceClient->close();
