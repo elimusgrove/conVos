@@ -47,10 +47,10 @@ if (isset($_GET['sentence'])) {
         // Loop over entities
         foreach ($entities as $entity) {
             if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
+                echo "HERE" . PHP_EOL;
                 // Generate unique id
                 $id = str_replace('.', '', strval(microtime(true)));
-                var_dump($id) . PHP_EOL;
-                die;
+                echo $id . PHP_EOL;
 
                 // Add to return array
                 $return[] = array(
