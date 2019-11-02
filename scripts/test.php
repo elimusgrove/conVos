@@ -9,30 +9,8 @@ require '/home3/hsnkwamy/public_html/vendor/autoload.php';
 
 # Imports the Google Cloud client library
 use Google\Cloud\Language\LanguageClient;
-use Google\Cloud\Storage\StorageClient;
+$language = new LanguageClient(['keyFile' => json_decode(file_get_contents("/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json"), true)]);
 
-// Authenticating with keyfile data.
-$storage = new StorageClient([
-    'keyFile' => json_decode(file_get_contents('/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json'), true)
-]);
-
-// Authenticating with a keyfile path.
-$storage = new StorageClient([
-    'keyFilePath' => '/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json'
-]);
-
-// Providing the Google Cloud project ID.
-$storage = new StorageClient([
-    'projectId' => 'SiriButWorse'
-]);
-
-# Your Google Cloud Platform project ID
-$projectId = 'siributworse-1572669643321';
-
-# Instantiates a client
-$language = new LanguageClient([
-    'projectId' => $projectId
-]);
 
 # The text to analyze
 $text = 'Hello, world!';
