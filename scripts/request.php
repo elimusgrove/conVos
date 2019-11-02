@@ -47,10 +47,10 @@ if (isset($_GET['sentence'])) {
 //            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
 
             // Filter results based on entity type
-            $type = strtolower(EntityType::name($entity->getType()));
-            if ($type != 'event' || $type != 'consumer good' || $type != 'organization' || $type != 'person') {
-                continue;
-            }
+//            $type = strtolower(EntityType::name($entity->getType()));
+//            if ($type != 'event' || $type != 'consumer good' || $type != 'organization' || $type != 'person') {
+//                continue;
+//            }
 
             // Add to return array
             $return['value'][] = array(
