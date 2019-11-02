@@ -35,7 +35,7 @@ if (isset($_GET['sentence'])) {
     try {
         // Create a new Document, add text as content and set type to PLAIN_TEXT
         $document = (new Document())
-            ->setContent($_GET['string'])
+            ->setContent($_GET['sentence'])
             ->setType(Type::PLAIN_TEXT);
 
         // Call the analyzeEntities function
@@ -44,7 +44,7 @@ if (isset($_GET['sentence'])) {
 
         // Loop over entities
         foreach ($entities as $entity) {
-            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
+//            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
                 // Generate unique id
                 $id = str_replace('.', '', strval(microtime(true)));
 
@@ -55,7 +55,7 @@ if (isset($_GET['sentence'])) {
 //                    'type' => EntityType::name($entity->getType()),
 //                    'salience' => $entity->getSalience(),
 //                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
-            }
+//            }
         }
     } finally {
         $languageServiceClient->close();
