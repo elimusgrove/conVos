@@ -9,68 +9,89 @@
 //    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
 //}
 
-
-// ##################################################
-// INCLUDES, NATURAL LANGUAGE PROCESSING API SETUP
-putenv("GOOGLE_APPLICATION_CREDENTIALS=/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json");
-
-require '/home3/hsnkwamy/public_html/vendor/autoload.php';
-require 'simple_html_dom.php';
-
 use Google\Cloud\Language\V1\Document;
 use Google\Cloud\Language\V1\Document\Type;
 use Google\Cloud\Language\V1\LanguageServiceClient;
 use Google\Cloud\Language\V1\Entity\Type as EntityType;
 
-// Create the Natural Language client
-$languageServiceClient = new LanguageServiceClient();
+// ##################################################
+// PROCESSING SENTENCE REQUEST
+if (isset($_GET['sentence'])) {
+
+    // ##################################################
+    // INCLUDES, NATURAL LANGUAGE PROCESSING API SETUP
+    putenv("GOOGLE_APPLICATION_CREDENTIALS=/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json");
+
+    require '/home3/hsnkwamy/public_html/vendor/autoload.php';
+
+    // Create the Natural Language client
+    $languageServiceClient = new LanguageServiceClient();
+
+    // ##################################################
+    // PROCESS QUERY STRING
+
+    // Build array to be returned
+    $return = array('value' => array());
+    try {
+        // Create a new Document, add text as content and set type to PLAIN_TEXT
+        $document = (new Document())
+            ->setContent($_GET['sentence'])
+            ->setType(Type::PLAIN_TEXT);
+
+        // Call the analyzeEntities function
+        $response = $languageServiceClient->analyzeEntities($document, []);
+        $entities = $response->getEntities();
+
+        // Loop over entities
+        foreach ($entities as $entity) {
+
+            // Filter results based on entity type
+            $type = strtolower(EntityType::name($entity->getType()));
+            if ($type != 'event' && $type != 'consumer_good' && $type != 'organization' && $type != 'person') {
+                continue;
+            }
+
+            // Add to return array
+            $return['value'][] = array(
+                'string' => $entity->getName(),
+                'id' => uniqid(),
+                'type' => EntityType::name($entity->getType()),
+                'salience' => $entity->getSalience());
+        }
+    } finally {
+        $languageServiceClient->close();
+    }
+
+    // ##################################################
+    // RETURN KEYWORDS
+    echo json_encode($return);
+}
 
 
 // ##################################################
-// PROCESS QUERY STRING
-
-// Build array to be returned
-$to_process = array();
-try {
-    // Create a new Document, add text as content and set type to PLAIN_TEXT
-    $document = (new Document())
-        ->setContent($_GET['string'])
-        ->setType(Type::PLAIN_TEXT);
-
-    // Call the analyzeEntities function
-    $response = $languageServiceClient->analyzeEntities($document, []);
-    $entities = $response->getEntities();
-
-    // Loop over entities
-    foreach ($entities as $entity) {
-        if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
-            $to_process[] = array(
-                'word' => $entity->getName(),
-                'type' => EntityType::name($entity->getType()),
-                'salience' => $entity->getSalience(),
-                'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
-        }
-    }
-} finally {
-    $languageServiceClient->close();
+// PROCESSING KEYWORD REQUEST
+if (isset($_GET['keyword'])) {
+    echo json_encode(array($_GET['keyword'], $_GET['id']));
+    exit(1);
 }
 
-$return = array();
-foreach ($entities as $entity) {
-    $return[] = $entity->getName();
-}
-
-echo json_encode(array('string' => $return));
+//$return = array();
+//foreach ($entities as $entity) {
+//    $return[] = $entity->getName();
+//}
+//
+//echo json_encode(array('string' => $return));
 
 // ##################################################
 // WEB SCRAPE PROCESSED ENTITIES
 
-//// Sort entities by salience
+// Sort entities by salience
 //$salience = array_column($to_process, 'salience');
 //array_multisort($salience, SORT_DESC, $to_process);
-//
 //
 //// Loop over entities
 //foreach ($to_process as $entity => $values) {
 //
+//    $xml = file_get_contents("http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" . $_GET['string']);
+//    var_dump($xml);
 //}
