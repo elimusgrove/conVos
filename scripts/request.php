@@ -17,8 +17,6 @@ use Google\Cloud\Language\V1\Entity\Type as EntityType;
 // ##################################################
 // PROCESSING SENTENCE REQUEST
 if (isset($_GET['sentence'])) {
-    echo "HERE";
-
 
     // ##################################################
     // INCLUDES, NATURAL LANGUAGE PROCESSING API SETUP
@@ -47,6 +45,7 @@ if (isset($_GET['sentence'])) {
 
         // Loop over entities
         foreach ($entities as $entity) {
+            echo "Looping over entities";
             if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
                 echo "HERE" . PHP_EOL;
                 // Generate unique id
