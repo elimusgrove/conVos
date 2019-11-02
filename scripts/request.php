@@ -100,9 +100,10 @@ if (isset($_GET['keyword'])) {
     $dom_results->load($result);
 
     // Get paragraph elements
+    // .BNeawe.s3v9rd.AP7Wnd'
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
+    foreach ($dom_results->find('div') as $par) {
         if ($i > 3) {
             break;
         }
