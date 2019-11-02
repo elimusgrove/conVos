@@ -233,8 +233,9 @@ nav a:hover:before {
 }
 
 #sign_ons .button:hover {
-    background:rgb(255,0,255);
-    border:white 3px solid;
+    color:rgb(255,0,255);
+    background:white;
+    border:rgb(255,0,255) 3px solid;
     box-shadow: 0 0 15px white;
     transition: 0.8s;
 }
