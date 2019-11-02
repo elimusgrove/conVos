@@ -3,6 +3,7 @@
 session_start();
 
 // If user isn't logged in
+var_dump($_SESSION);
 if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) {
     // Clear Session
     session_unset();
