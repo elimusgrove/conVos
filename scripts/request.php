@@ -78,10 +78,10 @@ if (isset($_GET['sentence'])) {
 // PROCESSING KEYWORD REQUEST
 if (isset($_GET['keyword'])) {
 
-    // Invalid keyword id
-    if (!$_GET['id']) {
-        exit(1);
-    }
+    // Invalid keyword id TODO: UNCOMMENT
+//    if (!$_GET['id']) {
+//        exit(1);
+//    }
 
 
     // ##################################################
