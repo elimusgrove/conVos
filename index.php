@@ -3,7 +3,7 @@
 session_start();
 
 // Testing - uncomment as needed
-var_dump($_SESSION);
+//var_dump($_SESSION);
 //$_SESSION['username'] = 'tester';
 //unset($_SESSION['username']);
 
@@ -59,7 +59,7 @@ if (!isset($_SESSION['username'])) {
                     <li><a style="letter-spacing: 0.1em;" href="#history">History</a></li>
                     <li>|</li>
                     <?php if (!isset($_SESSION['username'])) { ?>
-                    <li><a style="letter-spacing: 0.05em;" href="#sign_in">Login / Register</a></li>
+                    <li><a style="letter-spacing: 0.05em;" href="#sign_in">Log In / Register</a></li>
                     <?php } else { ?>
                     <li><a style="letter-spacing: 0.05em;" href="./scripts/logoff.php">Log out</a></li>
                     <?php } ?>
