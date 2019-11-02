@@ -9,6 +9,9 @@
 //    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
 //}
 
+// TODO: Insert into database on receiving a sentence
+// TODO: Update database when receiving the keywords
+
 use Google\Cloud\Language\V1\Document;
 use Google\Cloud\Language\V1\Document\Type;
 use Google\Cloud\Language\V1\LanguageServiceClient;
@@ -27,7 +30,6 @@ if (isset($_GET['sentence'])) {
 
     // Connect to database
     $conn = mysqli_connect('hsn.kwa.mybluehost.me', 'hsnkwamy', '8Rd23K*%', 'hsnkwamy_conVo');
-
 
 
     // Create the Natural Language client
@@ -87,40 +89,38 @@ if (isset($_GET['keyword'])) {
     // ##################################################
     // WEB SCRAPE PROCESSED ENTITIES
 
-    if (isset($_GET['test'])) {
+    // Library to process scraped HTML
+    require 'simple_html_dom.php';
 
-        // Library to process scraped HTML
-        require 'simple_html_dom.php';
+    // Begin curl request
+    $curl = curl_init();
 
-        // Begin curl request
-        $curl = curl_init();
+    // Set curl parameters
+    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-        // Set curl parameters
-        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    // Execute curl request, close
+    $result = curl_exec($curl);
+    curl_close($curl);
 
-        // Execute curl request, close
-        $result = curl_exec($curl);
-        curl_close($curl);
+    // Filter html
+    $dom_results = new simple_html_dom();
+    $dom_results->load($result);
 
-//        echo $result;
-
-        // Filter html
-        $dom_results = new simple_html_dom();
-        $dom_results->load($result);
-
-        // Get paragraph elements
-        $i = 0;
-        foreach($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
-            if ($i > 3) {
-                break;
-            }
-            $i++;
-            echo $par->plaintext . '<br/>';
+    // Get paragraph elements
+    $i = 0;
+    $return = array('headlines' => array());
+    foreach ($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
+        if ($i > 3) {
+            break;
         }
-    } else {
-        // Response to app
-        echo json_encode(array('id' => $_GET['id'], 'keyword' => $_GET['keyword']));
+
+        $return['headlines'][] = $par;
+        $i++;
+        echo $par->plaintext;
     }
+    $return[] = array('id' => $_POST['id']);
+
+    echo json_encode($return);
 }
