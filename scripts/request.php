@@ -61,6 +61,6 @@ try {
 
 // Loop over entities
 foreach ($to_process as $entity => $values) {
-    echo $values . PHP_EOL;
+    var_dump($values) . PHP_EOL;
     echo PHP_EOL;
 }
