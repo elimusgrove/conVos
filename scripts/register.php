@@ -27,6 +27,7 @@ $dup_query = mysqli_query($conn, "SELECT user_id FROM hsnkwamy_conVo.Users WHERE
 
 // If query returned results, exit script
 if (mysqli_num_rows($dup_query) > 0) {
+    $_SESSION['error'] = 'error';
     header("Location: ../index.php");
     exit(1);
 }
