@@ -84,26 +84,27 @@ if (isset($_GET['keyword'])) {
     require 'simple_html_dom.php';
 
     // Begin curl request
-    $curl = curl_init();
-
-    // Set curl parameters
-    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    // Execute curl request, close
-    $result = curl_exec($curl);
-    curl_close($curl);
-
-    // Load library
-    $dom_results = new simple_html_dom();
-    $dom_results->load($result);
+//    $curl = curl_init();
+//
+//    // Set curl parameters
+//    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
+//    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+//    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+//
+//    // Execute curl request, close
+//    $result = curl_exec($curl);
+//    curl_close($curl);
+//
+//    // Load library
+//    $dom_results = new simple_html_dom();
+//    $dom_results->load($result);
 
     // Get paragraph elements
-    // .BNeawe.s3v9rd.AP7Wnd'
+    // .BNeawe.s3v9rd.AP7Wnd
+    $html = file_get_html("https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($dom_results->find('div') as $par) {
+    foreach ($html->find('div') as $par) {
         if ($i > 3) {
             break;
         }
