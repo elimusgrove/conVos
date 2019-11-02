@@ -24,7 +24,6 @@
 <body>
     <header>
         <div class="container">
-<!--            <img src="img/conVo.png" width="57" height="57" alt="logo" class="logo">-->
             <nav>
                 <ul>
                     <li><a style="letter-spacing: 0.1em;" href="#learn_more">Learn More</a></li>
