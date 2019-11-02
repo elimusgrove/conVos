@@ -46,12 +46,12 @@ if (isset($_GET['sentence'])) {
         foreach ($entities as $entity) {
             if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
                 // Generate unique id
-                $id = str_replace('.', '', strval(microtime(true)));
+//                $id = str_replace('.', '', strval(microtime(true)));
 
                 // Add to return array
                 $return['value'][] = array(
                     'string' => $entity->getName(),
-                    'id' => $id);
+                    'id' => uniqid());
 //                    'type' => EntityType::name($entity->getType()),
 //                    'salience' => $entity->getSalience(),
 //                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
