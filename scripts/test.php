@@ -4,20 +4,10 @@
 //    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
 //}
 
-namespace Google\Cloud\Samples\Auth;
-//// Includes the autoloader for libraries installed with composer
+putenv("GOOGLE_APPLICATION_CREDENTIALS=/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json");
+
+// Includes the autoloader for libraries installed with composer
 require '/home3/hsnkwamy/public_html/vendor/autoload.php';
-
-// Imports the Cloud Storage client library.
-use Google\Cloud\Storage\StorageClient;
-
-# Explicitly use service account credentials by specifying the private key
-# file.
-$config = [
-    'keyFilePath' => "/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json",
-    'projectId' => "siributworse-1572669643321",
-];
-$storage = new StorageClient($config);
 
 // Imports the Google Cloud client library
 use Google\Cloud\Language\LanguageClient;
