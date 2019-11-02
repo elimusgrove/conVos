@@ -55,12 +55,17 @@ try {
     $languageServiceClient->close();
 }
 
+echo json_encode(array('string' => $to_process));
 
 // ##################################################
 // WEB SCRAPE PROCESSED ENTITIES
 
-// Loop over entities
-foreach ($to_process as $entity => $values) {
-    var_dump($values) . PHP_EOL;
-    echo PHP_EOL;
-}
+//// Sort entities by salience
+//$salience = array_column($to_process, 'salience');
+//array_multisort($salience, SORT_DESC, $to_process);
+//
+//
+//// Loop over entities
+//foreach ($to_process as $entity => $values) {
+//
+//}
