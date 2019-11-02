@@ -60,8 +60,7 @@ foreach ($entities as $entity) {
     $return[] = $entity->getName();
 }
 
-//echo json_encode(array('string' => $return));
-echo json_encode(array('string' => 'Conley big virgo'));
+echo json_encode(array('string' => $return));
 
 // ##################################################
 // WEB SCRAPE PROCESSED ENTITIES
