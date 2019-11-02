@@ -83,26 +83,21 @@ if (isset($_GET['keyword'])) {
         exit(1);
     }
 
-    echo json_encode(array($_GET['keyword'], $_GET['id']));
+
+    // ##################################################
+    // WEB SCRAPE PROCESSED ENTITIES
+    $curl = curl_init();
+
+    // Set curl parameters
+    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . $_GET['keyword']);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    // Execute curl request, close
+    $result = curl_exec($curl);
+    curl_close($curl);
+
+    // Response to app
+//    echo json_encode(array($_GET['keyword'], $_GET['id']));
+    echo $result;
 }
-
-//$return = array();
-//foreach ($entities as $entity) {
-//    $return[] = $entity->getName();
-//}
-//
-//echo json_encode(array('string' => $return));
-
-// ##################################################
-// WEB SCRAPE PROCESSED ENTITIES
-
-// Sort entities by salience
-//$salience = array_column($to_process, 'salience');
-//array_multisort($salience, SORT_DESC, $to_process);
-//
-//// Loop over entities
-//foreach ($to_process as $entity => $values) {
-//
-//    $xml = file_get_contents("http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" . $_GET['string']);
-//    var_dump($xml);
-//}
