@@ -50,7 +50,7 @@ if (isset($_GET['sentence'])) {
                 // Generate unique id
                 $id = str_replace('.', '', strval(microtime(true)));
                 var_dump($id) . PHP_EOL;
-                exit(0);
+                die;
 
                 // Add to return array
                 $return[] = array(
