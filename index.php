@@ -16,11 +16,11 @@ if (!isset($_SESSION['username'])) {
 // do login/register error alerts
     if (isset($_GET['login']) && $_GET['login'] === 'error') {
         ?>
-        <script>alert('Login Credential Error: Please try again!');</script>
+        <script type="text/javascript">alert('Login Credential Error: Please try again!');</script>
     <?php }
     if (isset($_GET['register']) && $_GET['register'] === 'error') {
         ?>
-        <script>alert('Username already taken. Please try a different username.');</script>
+        <script type="text/javascript">alert('Username already taken. Please try a different username.');</script>
     <?php }
 }
 
