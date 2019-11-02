@@ -5,7 +5,7 @@ if (isset($_GET)) {
 }
 
 # Includes the autoloader for libraries installed with composer
-require __DIR__ . '../vendor/autoload.php';
+require '/home3/hsnkwamy/public_html/vendor/autoload.php';
 
 # Imports the Google Cloud client library
 use Google\Cloud\Language\LanguageClient;
