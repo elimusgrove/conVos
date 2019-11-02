@@ -22,14 +22,16 @@
 
 <body>
     <header>
+        <link rel="icon" href="img/conVo.png" type="image/png" />
+
         <div class="container">
 <!--            <img src="img/conVo.png" width="57" height="57" alt="logo" class="logo">-->
             <nav>
                 <ul>
                     <li><a style="letter-spacing: 0.1em;" href="#learn_more">Learn More</a></li>
-                    <li><a style="letter-spacing: 0.1em;;" href="#">History</a></li>
+                    <li><a style="letter-spacing: 0.1em;" href="#history">History</a></li>
                     <li>|</li>
-                    <li><a style="letter-spacing: 0.1em;" href="#">Sign In</a></li>
+                    <li><a style="letter-spacing: 0.1em;" href="#sign_in">Sign In</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,9 +44,22 @@
     </div>
 
     <div id="learn_more">
-        <h1>What is conVo?</h1>
-        <p style="background-color: rgba(0,0,0,.5);">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias aliquam dolorem ea eius enim esse ex excepturi expedita ipsa itaque labore, laudantium magnam natus nemo nesciunt numquam, officia optio perspiciatis praesentium quidem quis, rem repellendus repudiandae rerum similique soluta sunt velit vitae voluptate? Harum in inventore iure officiis repudiandae voluptate. Ab aperiam cum deleniti dolores eos facere impedit inventore iste iure laborum minima, minus nihil officiis quas quisquam quo quos tenetur totam ut voluptatem. Aspernatur autem dolorum earum itaque nesciunt nihil nobis, possimus rem tenetur voluptatibus. Aliquid culpa cumque deleniti, ea earum in mollitia officiis ullam voluptate. Aut, tenetur.</p>
+        <h1>What is <span style="background-color: rgba(255,0,255, 0.5);">conVo</span></h1>
+        <p style="background-color: rgba(0,0,0,.5);"><span style="background-color: rgba(255,0,255, 0.5);">conVo</span> is a life-changing service that gives the user new knowledge and makes them seem smart in conversation. Guaranteed to raise IQ by 10 points. Provides quick and response feedback for live conversations designed for you.</p>
+        <br><p style="background-color: rgba(0,0,0,.5);">Siri, But Better</p>
+        <a href="#sign_in" class="button">GET STARTED</a>
     </div>
+
+    <div id="sign_in" class="wrapper">
+        <div class="left">
+            <div class="inner">
+            </div>
+        </div>
+        <div class="right">
+            <div class="inner"></div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
     <script src="js/jquery.slicknav.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

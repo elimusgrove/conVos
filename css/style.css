@@ -23,8 +23,8 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin-left: 70px;
-    padding-top: 23px;
+    margin-left: 5vh;
+    padding-top: 2.5vh;
     position: relative;
 }
 
@@ -53,6 +53,7 @@ nav a:hover:before {
     transition: 0.8s;
 }
 
+/* landing: showcase page */
 #showcase {
     background-image:
             linear-gradient(0deg, rgba(255,0,255, 0.7), rgba(255,255,255,0.1)),
@@ -96,7 +97,6 @@ nav a:hover:before {
     border-radius:30px;
     margin-top:30px;
     box-shadow: 0 0 25px white;
-
     position: relative;
     bottom: 0vh;
 }
@@ -107,12 +107,13 @@ nav a:hover:before {
     transition: 0.8s;
 }
 
+/* page 2: learn_more page */
 #learn_more {
     background-image:
         linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* ghetto tint */
-        url('../img/landingpage_background2.jpg');
+        url('../img/landingpage_background4.jpg');
     background-size:cover;
-    background-position:top;
+    background-position: top;
     height: 100vh;
     width: 100%;
     display:flex;
@@ -132,5 +133,71 @@ nav a:hover:before {
 #learn_more p {
     font-size: 1.5vw;
     position: relative;
-    bottom: 2vh;
+    bottom: 0vh;
+}
+
+#learn_more .button {
+    font-size:1.5vw;
+    text-decoration:none;
+    color:white;
+    border:white 3px solid;
+    padding:10px 50px;
+    border-radius:30px;
+    margin-top:30px;
+    box-shadow: 0 0 25px white;
+    background-color: rgba(0,0,0,.1);
+
+    position: relative;
+    bottom: 0vh;
+}
+
+#learn_more .button:hover {
+    background:white; /* change this to foreground color */
+    color:purple; /* change this to background color */
+    transition: 0.8s;
+}
+
+/* page 3: sign_in page */
+.wrapper {
+    background: url('../img/landingpage_background.jpg');
+    background-position:top;
+    position: relative;
+    overflow: hidden;
+}
+.left,
+.right {
+    width: 55vw;
+    height: 100vh;
+    top: 0;
+    transform: skewX(-8deg);
+    overflow: hidden;
+}
+.left {
+    position: relative;
+    left: -5%;
+    overflow: hidden;
+}
+.right {
+    position: absolute;
+    right: -6.2%;
+    overflow: hidden;
+}
+.left .inner,
+.right .inner {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: skewX(8deg);
+    overflow: hidden;
+}
+.left .inner {
+    background: linear-gradient(0deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.4));
+    margin-left: 9%;
+    overflow: hidden;
+}
+.right .inner {
+    background: linear-gradient(0deg, rgba(255, 0, 255, 0.2), rgba(255, 0, 255, 0.2));
+    margin-left: -9%;
+    overflow: hidden;
 }
