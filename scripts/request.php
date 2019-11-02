@@ -116,11 +116,10 @@ if (isset($_GET['keyword'])) {
             break;
         }
 
-        $return['headlines'][] = $par;
+        $return['headlines'][] = $par->plaintext;
         $i++;
-        echo $par->plaintext;
     }
     $return[] = array('id' => $_POST['id']);
 
-    var_dump($return);
+    echo json_encode($return);
 }
