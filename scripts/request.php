@@ -100,17 +100,27 @@ if (isset($_GET['keyword'])) {
 //    $dom_results->load($result);
 
     // Get paragraph elements
-    // .BNeawe.s3v9rd.AP7Wnd
     $html = file_get_html("https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($html->find('div') as $par) {
+    foreach ($html->find('.SALvLe .farUxc .mJ2Mod') as $par) {
         if ($i > 3) {
             break;
         }
 
         $return['headlines'][] = $par->plaintext;
         $i++;
+    }
+
+    if ($i <= 3) {
+        foreach ($html->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
+            if ($i > 3) {
+                break;
+            }
+
+            $return['headlines'][] = $par->plaintext;
+            $i++;
+        }
     }
 
     // Add id
