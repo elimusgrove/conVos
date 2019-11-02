@@ -107,5 +107,5 @@ if (isset($_GET['keyword'])) {
     $dom_results->load($result);
 
     // Response to app
-    echo json_encode(array($_GET['keyword'], $_GET['id']));
+    echo json_encode(array('id' => $_GET['id'], 'keyword' => $_GET['keyword']));
 }
