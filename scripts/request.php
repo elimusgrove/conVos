@@ -63,7 +63,7 @@ if (isset($_GET['sentence'])) {
 
     // ##################################################
     // RETURN KEYWORDS
-    echo json_encode($return);
+    echo json_encode(array('test'));
 }
 
 
