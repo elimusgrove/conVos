@@ -43,17 +43,3 @@ try {
 } finally {
     $languageServiceClient->close();
 }
-
-//// Imports the Google Cloud client library
-//use Google\Cloud\Language\LanguageClient;
-//$language = new LanguageClient();
-//
-//// The text to analyze
-//$text = $_GET['string'];
-//
-//// Detects the sentiment of the text
-//$annotation = $language->analyzeSentiment($text);
-//$sentiment = $annotation->sentiment();
-//
-//echo 'Text: ' . $text . '
-//Sentiment: ' . $sentiment['score'] . ', ' . $sentiment['magnitude'];
