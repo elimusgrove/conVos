@@ -44,7 +44,6 @@ if (isset($_GET['sentence'])) {
 
         // Loop over entities
         foreach ($entities as $entity) {
-//            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
 
             // Filter results based on entity type
             $type = strtolower(EntityType::name($entity->getType()));
@@ -58,8 +57,6 @@ if (isset($_GET['sentence'])) {
                 'id' => uniqid(),
                 'type' => EntityType::name($entity->getType()),
                 'salience' => $entity->getSalience());
-//                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
-//            }
         }
     } finally {
         $languageServiceClient->close();
