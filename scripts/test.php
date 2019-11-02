@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_GET)) {
-    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
-}
+//if (isset($_GET)) {
+//    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
+//}
 
 # Includes the autoloader for libraries installed with composer
 require '/home3/hsnkwamy/public_html/vendor/autoload.php';
@@ -13,7 +13,7 @@ $language = new LanguageClient(['keyFile' => json_decode(file_get_contents("/hom
 
 
 # The text to analyze
-$text = 'Hello, world!';
+$text = $_GET['string'];
 
 # Detects the sentiment of the text
 $annotation = $language->analyzeSentiment($text);
