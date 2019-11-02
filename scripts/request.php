@@ -31,7 +31,7 @@ if (isset($_GET['sentence'])) {
     // PROCESS QUERY STRING
 
     // Build array to be returned
-    $return = array();
+    $return = array('value' => array());
     try {
         // Create a new Document, add text as content and set type to PLAIN_TEXT
         $document = (new Document())
@@ -44,18 +44,18 @@ if (isset($_GET['sentence'])) {
 
         // Loop over entities
         foreach ($entities as $entity) {
-//            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
+            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
                 // Generate unique id
                 $id = str_replace('.', '', strval(microtime(true)));
 
                 // Add to return array
-                $return[] = array(
+                $return['value'][] = array(
                     'word' => $entity->getName(),
                     'id' => $id);
 //                    'type' => EntityType::name($entity->getType()),
 //                    'salience' => $entity->getSalience(),
 //                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
-//            }
+            }
         }
     } finally {
         $languageServiceClient->close();
