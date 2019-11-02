@@ -2,15 +2,32 @@
 // Begins Session
 session_start();
 
-// If user isn't logged in
+// Testing - uncomment as needed
 var_dump($_SESSION);
-if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) {
-    // Clear Session
+//$_SESSION['username'] = 'tester';
+//unset($_SESSION['username']);
+
+if (isset($_GET['logoff'])) {
     session_unset();
+    header('Location: ./index.php');
 }
 
-// if get error = login echo logon error with js TODO
-// if get error = register echo register error with js TODO
+// If user isn't logged in
+if (!isset($_SESSION['username'])) {
+// Clear Session
+    session_unset();
+//    header('Location: ./scripts/register.php');
+
+// do login/register error alerts
+    if (isset($_GET['login']) && $_GET['login'] === 'error') {
+        ?>
+        <script>alert('Login Credential Error: Please try again!');</script>
+    <?php }
+    if (isset($_GET['register']) && $_GET['register'] === 'error') {
+        ?>
+        <script>alert('Username already taken. Please try a different username.');</script>
+    <?php }
+}
 
 ?>
 
@@ -41,12 +58,16 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
 <body>
     <header>
         <div class="container">
-            <nav>
+            <nav id="navbar">
                 <ul>
                     <li><a style="letter-spacing: 0.1em;" href="#learn_more">Learn More</a></li>
                     <li><a style="letter-spacing: 0.1em;" href="#history">History</a></li>
                     <li>|</li>
-                    <li><a style="letter-spacing: 0.1em;" href="#sign_in">Sign In</a></li>
+                    <?php if (!isset($_SESSION['username'])) { ?>
+                    <li><a style="letter-spacing: 0.05em;" href="#sign_in">Login / Register</a></li>
+                    <?php } else { ?>
+                    <li><a style="letter-spacing: 0.05em;" href="./scripts/register.php?logoff">Log out</a></li>
+                    <?php } ?>
                 </ul>
             </nav>
         </div>
@@ -60,7 +81,7 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
 
     <div id="learn_more">
         <h1>What is conVo</h1>
-        <p style="background-color: rgba(0,0,0,.5);">The quick and easy-to-use app <b style="background-color: rgba(255,0,255, 0.8);">designed for you.</b><br> conVo provides quick and responsive feedback for live conversations tailored to you.</p>
+        <p style="background-color: rgba(0,0,0,.5);">The quick and easy-to-use app <b style="background-color: rgba(255,0,255, 0.8);">designed for you.</b><br> conVo provides quick and responsive feedback for live conversations tailored for you.</p>
         <br><p style="background-color: rgba(0,0,0,.5);">Siri, But Better</p>
         <a href="#sign_in" class="button">GET STARTED</a>
     </div>
@@ -70,20 +91,21 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
     <div id="sign_in" class="wrapper">
         <div class="left">
             <div class="inner">
+                <h1 style="font-size:2.45em;display:inline;position:relative;right:-15vw;top:25vh;background-color:rgba(0,0,0,.5);">LOG IN | SIGN UP</h1>
             </div>
         </div>
         <div class="right">
             <div id="sign_ons" class="inner">
                 <!-- sign in / sign up -->
+                <h1 style="font-size:2.45em;display:inline;position:relative;right:-20vw;top:25vh;background-color:rgba(0,0,0,.5);">LOG IN | SIGN UP</h1>
                 <form method="post">
-                    <input style="position:relative; right:-20vw; top:25vh;" class="param" type="username" name="username" placeholder="username"><br>
-                    <input style="position:relative; right:-20vw; top:25vh;" class="param" type="password" name="password" placeholder="password">
+                    <input style="position:relative;right:-20vw;top:25vh;" class="param" type="username" name="username" placeholder="username">
                     <br>
-                    <br>
-                    <input formaction="scripts/login.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-20vw; top:6em;" href="/scripts/login.php" class="button" value="LOG IN">
-                    <input formaction="scripts/register.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-24vw; top:6em;" href="/scripts/register.php" class="button" value="SIGN UP">
+                    <input style="position:relative;right:-20vw;top:25vh;" class="param" type="password" name="password" placeholder="password">
+                    <br><br>
+                    <input formaction="scripts/login.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-13.5em; top:6em;" href="/scripts/login.php" class="button" value="LOG IN">
+                    <input formaction="scripts/register.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-15.75em; top:6em;" href="./index.php" class="button" value="SIGN UP">
                 </form>
-
             </div>
         </div>
     </div>
@@ -130,6 +152,25 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
             });
         });
     </script>
+
+<script>// When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    // Get the navbar
+    var navbar = document.getElementById("navbar");
+
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
 </body>
 
 </html>
