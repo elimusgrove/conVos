@@ -9,7 +9,8 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
     session_unset();
 }
 
-
+// if get error = login echo logon error with js TODO
+// if get error = register echo register error with js TODO
 
 ?>
 
