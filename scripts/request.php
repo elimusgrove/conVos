@@ -107,7 +107,7 @@ if (isset($_GET['keyword'])) {
         $result = curl_exec($curl);
         curl_close($curl);
 
-        echo $result
+        echo $result;
 
         // Filter html
         $dom_results = new simple_html_dom();
