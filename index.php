@@ -22,7 +22,7 @@
 
 <body>
     <header>
-        <link rel="icon" href="img/conVo.png" type="image/png" />
+        <link rel="icon" href="/home3/hsnkwamy/public_html/img/conVo.png" type="image/png" />
 
         <div class="container">
 <!--            <img src="img/conVo.png" width="57" height="57" alt="logo" class="logo">-->
