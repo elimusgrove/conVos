@@ -48,8 +48,7 @@ if (isset($_GET['sentence'])) {
 
             // Filter results based on entity type
             $type = strtolower(EntityType::name($entity->getType()));
-            if ($type != 'event' || $type != 'consumer_good' || $type != 'organization' || $type != 'person') {
-                echo "TYPE: " . $type;
+            if ($type != 'event' && $type != 'consumer_good' && $type != 'organization' && $type != 'person') {
                 continue;
             }
 
