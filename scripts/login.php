@@ -27,6 +27,8 @@ $validation_query = mysqli_query($conn, "SELECT user_id FROM hsnkwamy_conVo.User
 
 // If account is invalid, stop script
 if (mysqli_num_rows($validation_query) < 1) {
+    header("Location: ../index.php?error=login");
+    session_unset();
     exit(1);
 }
 
