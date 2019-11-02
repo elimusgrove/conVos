@@ -54,11 +54,12 @@ nav a:hover:before {
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
+/*.sticky {*/
+/*    position: fixed;*/
+/*    z-index: -1;*/
+/*    top: 0;*/
+/*    width: 100%;*/
+/*}*/
 
 
 /* landing: showcase page */
