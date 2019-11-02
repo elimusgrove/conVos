@@ -83,9 +83,6 @@ if (isset($_GET['keyword'])) {
         exit(1);
     }
 
-    // Response to app
-    echo json_encode(array('id' => $_GET['id'], 'keyword' => $_GET['keyword']));
-
 
     // ##################################################
     // WEB SCRAPE PROCESSED ENTITIES
@@ -122,5 +119,8 @@ if (isset($_GET['keyword'])) {
             $i++;
             echo $par->plaintext . '<br/>';
         }
+    } else {
+        // Response to app
+        echo json_encode(array('id' => $_GET['id'], 'keyword' => $_GET['keyword']));
     }
 }
