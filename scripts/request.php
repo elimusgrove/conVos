@@ -23,7 +23,6 @@ use Google\Cloud\Language\V1\Entity\Type as EntityType;
 // ##################################################
 // PROCESSING SENTENCE REQUEST
 if (isset($_GET['sentence'])) {
-    echo $_GET['sentence'];
 
     // Create the Natural Language client
     $languageServiceClient = new LanguageServiceClient();
@@ -32,8 +31,9 @@ if (isset($_GET['sentence'])) {
     // PROCESS QUERY STRING
 
     // Build array to be returned
-    $return = array('value' => array());
+//    $return = array('value' => array());
     try {
+        echo "HERE1";
         // Create a new Document, add text as content and set type to PLAIN_TEXT
         $document = (new Document())
             ->setContent($_GET['string'])
