@@ -10,66 +10,6 @@ body {
     line-height:1.6;
 }
 
-#showcase {
-    background-image:
-            linear-gradient(0deg, rgba(255,0,255, 0.7), rgba(0,0,0,0.0)),
-            url('../img/landingpage_background3.jpg');
-    background-size:cover;
-    background-position:top;
-    height:91.5vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-#showcase:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-#section-a {
-    background-color:#17577e;
-    background-size:cover;
-    background-position:bottom;
-    height:100vh; /* takes up 100% vertical space, auto adjusts to screen size */
-}
-
-#showcase h1 {
-    font-size:150px;
-    line-height:1.2;
-    position: relative;
-    bottom: 1vh;
-}
-
-#showcase p {
-    font-size:22px;
-    position: relative;
-    bottom: 1vh;
-}
-
-#showcase .button {
-    font-size:20px;
-    text-decoration:none;
-    color:white;
-    border:white 3px solid;
-    padding:10px 50px;
-    border-radius:30px;
-    margin-top:30px;
-    box-shadow: 0 0 25px white;
-
-    position: relative;
-    bottom: -1vh;
-}
-
-#showcase .button:hover {
-    background:white; /* change this to foreground color */
-    color:purple; /* change this to background color */
-    transition: 0.8s;
-}
-
 nav {
     background: black;
     width: 100%;
@@ -92,7 +32,8 @@ nav a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size:1vw;
+    font-size:2vh;
 }
 
 nav a:before {
@@ -110,4 +51,86 @@ nav a:before {
 nav a:hover:before {
     width: 100%;
     transition: 0.8s;
+}
+
+#showcase {
+    background-image:
+            linear-gradient(0deg, rgba(255,0,255, 0.7), rgba(255,255,255,0.1)),
+            url('../img/landingpage_background3.jpg');
+    background-size:cover;
+    background-position:top;
+    height: 91.5vh;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+#showcase:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#showcase h1 {
+    font-size:10vw;
+    line-height:1.2;
+    position: relative;
+    bottom: 1vh;
+}
+
+#showcase p {
+    font-size:1.5vw;
+    position: relative;
+    bottom: 2vh;
+}
+
+#showcase .button {
+    font-size:1.5vw;
+    text-decoration:none;
+    color:white;
+    border:white 3px solid;
+    padding:10px 50px;
+    border-radius:30px;
+    margin-top:30px;
+    box-shadow: 0 0 25px white;
+
+    position: relative;
+    bottom: 0vh;
+}
+
+#showcase .button:hover {
+    background:white; /* change this to foreground color */
+    color:purple; /* change this to background color */
+    transition: 0.8s;
+}
+
+#learn_more {
+    background-image:
+        linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* ghetto tint */
+        url('../img/landingpage_background2.jpg');
+    background-size:cover;
+    background-position:top;
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+#learn_more h1 {
+    font-size:5vw;
+    line-height:1.2;
+    position: relative;
+    bottom: 6vh;
+}
+
+#learn_more p {
+    font-size: 1.5vw;
+    position: relative;
+    bottom: 2vh;
 }
