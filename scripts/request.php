@@ -9,6 +9,12 @@
 //    echo json_encode(array('value'=>array(strtoupper($_GET['string']), 'value 2')));
 //}
 
+// ##################################################
+// INCLUDES, NATURAL LANGUAGE PROCESSING API SETUP
+putenv("GOOGLE_APPLICATION_CREDENTIALS=/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json");
+
+require '/home3/hsnkwamy/public_html/vendor/autoload.php';
+
 use Google\Cloud\Language\V1\Document;
 use Google\Cloud\Language\V1\Document\Type;
 use Google\Cloud\Language\V1\LanguageServiceClient;
@@ -17,16 +23,10 @@ use Google\Cloud\Language\V1\Entity\Type as EntityType;
 // ##################################################
 // PROCESSING SENTENCE REQUEST
 if (isset($_GET['sentence'])) {
-
-    // ##################################################
-    // INCLUDES, NATURAL LANGUAGE PROCESSING API SETUP
-    putenv("GOOGLE_APPLICATION_CREDENTIALS=/home3/hsnkwamy/public_html/vendor/SiriButWorse-0e5d6a5f7218.json");
-
-    require '/home3/hsnkwamy/public_html/vendor/autoload.php';
+    echo $_GET['sentence'];
 
     // Create the Natural Language client
     $languageServiceClient = new LanguageServiceClient();
-
 
     // ##################################################
     // PROCESS QUERY STRING
