@@ -46,15 +46,18 @@ if (isset($_GET['sentence'])) {
         foreach ($entities as $entity) {
 //            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
 
-            $type = EntityType::name($entity->getType());
-            echo $type . PHP_EOL;
+            // Filter results based on entity type
+            $type = strtolower(EntityType::name($entity->getType()));
+            if ($type != 'event' || $type != 'consumer good' || $type != 'organization' || $type != 'person') {
+                continue;
+            }
 
             // Add to return array
             $return['value'][] = array(
                 'string' => $entity->getName(),
-                'id' => uniqid());
-//                    'type' => EntityType::name($entity->getType()),
-//                    'salience' => $entity->getSalience(),
+                'id' => uniqid(),
+                'type' => EntityType::name($entity->getType()),
+                'salience' => $entity->getSalience());
 //                    'wiki' => $entity->getMetadata()->offsetGet('wikipedia_url'));
 //            }
         }
@@ -71,7 +74,7 @@ if (isset($_GET['sentence'])) {
 // ##################################################
 // PROCESSING KEYWORD REQUEST
 if (isset($_GET['keyword'])) {
-    echo json_encode(array("This is not a supported feature yet."));
+    echo json_encode(array($_GET['keyword'], $_GET['id']));
     exit(1);
 }
 
