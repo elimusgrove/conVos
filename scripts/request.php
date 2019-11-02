@@ -78,14 +78,19 @@ if (isset($_GET['sentence'])) {
 // PROCESSING KEYWORD REQUEST
 if (isset($_GET['keyword'])) {
 
-    // Invalid keyword id TODO: UNCOMMENT
-//    if (!$_GET['id']) {
-//        exit(1);
-//    }
+    // Invalid keyword id
+    if (!$_GET['id']) {
+        exit(1);
+    }
 
 
     // ##################################################
     // WEB SCRAPE PROCESSED ENTITIES
+
+    // Library to process scraped HTML
+    require 'simple_html_dom.php';
+
+    // Begin curl request
     $curl = curl_init();
 
     // Set curl parameters
@@ -97,7 +102,10 @@ if (isset($_GET['keyword'])) {
     $result = curl_exec($curl);
     curl_close($curl);
 
+    // Filter html
+    $dom_results = new simple_html_dom();
+    $dom_results->load($result);
+
     // Response to app
-//    echo json_encode(array($_GET['keyword'], $_GET['id']));
-    echo $result;
+    echo json_encode(array($_GET['keyword'], $_GET['id']));
 }
