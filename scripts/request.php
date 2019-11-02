@@ -99,7 +99,7 @@ if (isset($_GET['keyword'])) {
         $curl = curl_init();
 
         // Set curl parameters
-        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace('+', '_', $_GET['keyword']));
+        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
