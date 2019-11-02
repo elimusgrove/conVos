@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET)) {
-    echo json_encode(strtoupper($_GET['string']));
+    echo json_encode(array('string'=>strtoupper($_GET['string'])));
 }
 
 //if (isset($_POST)) {
