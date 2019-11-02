@@ -107,16 +107,16 @@ if (isset($_GET['keyword'])) {
         $result = curl_exec($curl);
         curl_close($curl);
 
-        echo $result;
+//        echo $result;
 
         // Filter html
         $dom_results = new simple_html_dom();
         $dom_results->load($result);
 
-//         Get paragraph elements
-//        foreach($dom_results->find('.BNeawe') as $par) {
-//            echo $par->plaintext . '<br/>';
-//        }
+        // Get paragraph elements
+        foreach($dom_results->find('.s3v9rd') as $par) {
+            echo $par->plaintext . '<br/>';
+        }
 
     }
 }
