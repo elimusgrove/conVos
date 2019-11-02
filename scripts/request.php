@@ -55,7 +55,12 @@ try {
     $languageServiceClient->close();
 }
 
-echo json_encode(array('string' => $to_process));
+$return = array();
+foreach ($entities as $entity) {
+    $return[] = $entity->getName();
+}
+
+echo json_encode(array('string') => $return);
 
 // ##################################################
 // WEB SCRAPE PROCESSED ENTITIES
