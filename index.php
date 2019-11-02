@@ -74,13 +74,13 @@ if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) 
         <div class="right">
             <div id="sign_ons" class="inner">
                 <!-- sign in / sign up -->
-                <form>
+                <form method="post">
                     <input style="position:relative; right:-20vw; top:25vh;" class="param" type="username" name="username" placeholder="username"><br>
                     <input style="position:relative; right:-20vw; top:25vh;" class="param" type="password" name="password" placeholder="password">
                     <br>
                     <br>
-                    <a type="button" style="letter-spacing: 0.05em;position:relative; right:-20vw; top:6em;" href="/scripts/login.php" class="button">LOG IN</a>
-                    <a type="button" style="letter-spacing: 0.05em;position:relative; right:-24vw; top:6em;" href="/scripts/register.php" class="button">SIGN UP</a>
+                    <a formaction="scripts/login.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-20vw; top:6em;" href="/scripts/login.php" class="button">LOG IN</a>
+                    <a formaction="scripts/register.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-24vw; top:6em;" href="/scripts/register.php" class="button">SIGN UP</a>
                 </form>
 
             </div>
