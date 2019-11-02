@@ -114,7 +114,7 @@ if (isset($_GET['keyword'])) {
         $dom_results->load($result);
 
 //         Get paragraph elements
-        foreach($dom_results->find('.BNeawe\s3v9rd\AP7Wnd') as $par) {
+        foreach($dom_results->find('.BNeawe') as $par) {
             echo $par->plaintext . '<br/>';
         }
 
