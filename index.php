@@ -18,6 +18,7 @@
 
 
     <title>conVo App</title>
+    <link rel='icon' href='favicon.ico' type='img/ico'/>
 </head>
 
 <body>
