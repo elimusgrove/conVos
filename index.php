@@ -1,3 +1,18 @@
+<?php
+// Begins Session
+session_start();
+
+// If user isn't logged in
+if (!isset($_SESSION['username']) || (time() - $_SESSION['login_time'] > 3600)) {
+    // Clear Session
+    session_unset();
+}
+
+
+
+?>
+
+<!-- HTML -->
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +26,7 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- boostrap -->
+    <!-- boot strap -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- scripts -->
@@ -42,21 +57,38 @@
     </div>
 
     <div id="learn_more">
-        <h1>What is <span style="background-color: rgba(255,0,255, 0.5);">conVo</span></h1>
-        <p style="background-color: rgba(0,0,0,.5);"><span style="background-color: rgba(255,0,255, 0.5);">conVo</span> is a life-changing service that gives the user new knowledge and makes them seem smart in conversation. Guaranteed to raise IQ by 10 points. Provides quick and response feedback for live conversations designed for you.</p>
+        <h1>What is conVo</h1>
+        <p style="background-color: rgba(0,0,0,.5);">The quick and easy-to-use app <b style="background-color: rgba(255,0,255, 0.8);">designed for you.</b><br> conVo provides quick and responsive feedback for live conversations tailored to you.</p>
         <br><p style="background-color: rgba(0,0,0,.5);">Siri, But Better</p>
         <a href="#sign_in" class="button">GET STARTED</a>
     </div>
 
+    <!-- Alternative Page: History -->
+    <?php if (!isset($_SESSION['username'])) { ?>
     <div id="sign_in" class="wrapper">
         <div class="left">
             <div class="inner">
             </div>
         </div>
         <div class="right">
-            <div class="inner"></div>
+            <div id="sign_ons" class="inner">
+                <!-- sign in / sign up -->
+                <form style = "position:relative; right:-20vw; top:25vh;">
+                    <input class="param" type="text" name="username" placeholder="username"><br>
+                    <input class="param" type="text" name="password" placeholder="password">
+                </form>
+
+
+                <a type="button" style="letter-spacing: 0.05em;position:relative; right:-20vw; top:6em;" href="/scripts/login.php" class="button">LOG IN</a>
+                <a type="button" style="letter-spacing: 0.05em;position:relative; right:-24vw; top:6em;" href="/scripts/register.php" class="button">SIGN UP</a>
+            </div>
         </div>
     </div>
+    <?php
+    } else {
+// add history
+    }?>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
     <script src="js/jquery.slicknav.min.js"></script>
@@ -96,6 +128,5 @@
         });
     </script>
 </body>
-
 
 </html>

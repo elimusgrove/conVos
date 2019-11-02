@@ -85,7 +85,7 @@ nav a:hover:before {
 #showcase p {
     font-size:1.5vw;
     position: relative;
-    bottom: 2vh;
+    bottom: 3vh;
 }
 
 #showcase .button {
@@ -96,14 +96,14 @@ nav a:hover:before {
     padding:10px 50px;
     border-radius:30px;
     margin-top:30px;
-    box-shadow: 0 0 25px white;
+    box-shadow: 0 0 15px white;
     position: relative;
-    bottom: 0vh;
+    bottom: 2vh;
 }
 
 #showcase .button:hover {
     background:white; /* change this to foreground color */
-    color:purple; /* change this to background color */
+    color:rgb(255,0,255); /* change this to background color */
     transition: 0.8s;
 }
 
@@ -133,27 +133,27 @@ nav a:hover:before {
 #learn_more p {
     font-size: 1.5vw;
     position: relative;
-    bottom: 0vh;
+    bottom: 4vh;
 }
 
 #learn_more .button {
     font-size:1.5vw;
     text-decoration:none;
-    color:white;
-    border:white 3px solid;
+    color:rgb(255,0,255);
+    border:rgb(255,0,255) 3px solid;
     padding:10px 50px;
     border-radius:30px;
     margin-top:30px;
-    box-shadow: 0 0 25px white;
-    background-color: rgba(0,0,0,.1);
+    box-shadow: 0 0 15px rgba(255,0,255, 1);
+    background-color: rgba(255,255,255, 0.6);
 
     position: relative;
     bottom: 0vh;
 }
 
 #learn_more .button:hover {
-    background:white; /* change this to foreground color */
-    color:purple; /* change this to background color */
+    background:rgb(255,0,255); /* change this to foreground color */
+    color:white; /* change this to background color */
     transition: 0.8s;
 }
 
@@ -192,12 +192,49 @@ nav a:hover:before {
     overflow: hidden;
 }
 .left .inner {
-    background: linear-gradient(0deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.4));
+    background: linear-gradient(45deg, rgba(0,0,0, 0.6), rgba(0,0,0,0.2));
     margin-left: 9%;
     overflow: hidden;
 }
 .right .inner {
-    background: linear-gradient(0deg, rgba(255, 0, 255, 0.2), rgba(255, 0, 255, 0.2));
+    background: linear-gradient(-45deg, rgba(255, 0, 255, 0.5), rgba(255, 0, 255, 0.0));
     margin-left: -9%;
     overflow: hidden;
+}
+
+#sign_ons .param {
+    font-size:1.5vw;
+    text-decoration:none;
+    color:black;
+    border:white 3px solid;
+    padding:15px 30px;
+    border-radius:10px;
+    margin-top:30px;
+    box-shadow: 0 0 15px white;
+    position: relative;
+    bottom: 2vh;
+}
+
+#sign_ons .param:hover {
+    box-shadow: 0 0 15px rgb(255,0,255);
+    transition: 0.8s;
+}
+
+#sign_ons .button {
+    font-size:1.5vw;
+    text-decoration:none;
+    color:white;
+    border:rgb(255,0,255) 3px solid;
+    padding:10px 20px;
+    border-radius:px;
+    margin-top:10vh;
+    box-shadow: 0 0 15px rgba(255,0,255, 1);
+    background-color: rgba(255,0,255, 0.6);
+}
+
+#sign_ons .button:hover {
+    background:rgb(255,0,255);
+    border:white 3px solid;
+    box-shadow: 0 0 15px white;
+    transition: 0.8s;
 }
