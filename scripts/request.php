@@ -81,6 +81,7 @@ else if (isset($_GET['keyword'])) {
 
     // Library to process scraped HTML
     if (isset($_GET['test'])) {
+        echo "here";
 
         require 'simple_html_dom.php';
 
