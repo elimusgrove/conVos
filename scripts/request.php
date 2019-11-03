@@ -98,7 +98,7 @@ else if (isset($_GET['keyword'])) {
         $return['id'] = $_GET['id'];
 
         // Return values to app
-//        echo json_encode($return);
+        echo json_encode($return);
     } else {
         echo json_encode(array('headlines'=>array('string'=>'Trump', 'id'=>'1')));
     }
