@@ -85,19 +85,19 @@ else if (isset($_GET['keyword'])) {
 
         $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
         $html = file_get_html($url);
-//        echo $html;
+        echo $html;
 
         // Get paragraph elements
         $return = array('headlines' => array());
-        foreach ($html->find('div.BNeawe.s3v9rd.AP7Wnd') as $par) {
-            $return['headlines'][] = $par->plaintext;
-        }
+//        foreach ($html->find('div.BNeawe.s3v9rd.AP7Wnd') as $par) {
+//            $return['headlines'][] = $par->plaintext;
+//        }
 
         // Add id
         $return['id'] = $_GET['id'];
 
         // Return values to app
-        echo json_encode($return);
+//        echo json_encode($return);
     } else {
         echo json_encode(array('headlines'=>array('string'=>'Trump', 'id'=>'1')));
     }
