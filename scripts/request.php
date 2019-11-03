@@ -41,7 +41,10 @@ if (isset($_GET['sentence'])) {
         $response = $languageServiceClient->analyzeEntities($document, []);
         $entities = $response->getEntities();
 
-        $languageServiceClient = new LanguageServiceClient();
+//        # Instantiates a client
+//        $language = new LanguageClient([
+//            'projectId' => 'siributworse-1572669643321'
+//        ]);
 
         // Loop over entities
         foreach ($entities as $entity) {
@@ -51,16 +54,17 @@ if (isset($_GET['sentence'])) {
             if ($type == 'other') {
                 continue;
             }
-
-            $annotation = $languageServiceClient->analyzeSentiment($entity->getName());
-            $sentiment = $annotation->sentiment();
+//
+//            $annotation = $language->analyzeSentiment($entity->getName());
+//            $sentiment = $annotation->sentiment();
+//
+//            echo $sentiment . PHP_EOL;
 
             // Add to return array
             $return['value'][] = array(
                 'string' => $entity->getName(),
                 'id' => uniqid(),
-                'type' => EntityType::name($entity->getType()),
-                'sentiment' => $sentiment);
+                'type' => EntityType::name($entity->getType()));
         }
     } finally {
         $languageServiceClient->close();
