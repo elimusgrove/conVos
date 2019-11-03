@@ -58,7 +58,7 @@ if (!isset($_SESSION['username'])) {
                     <li><a style="letter-spacing: 0.1em;" href="#learn_more">Learn More</a></li>
                     <?php if (!isset($_SESSION['username'])) { ?>
                             <li>|</li>
-                    <li><a style="letter-spacing: 0.05em;" href="#sign_in">Log In / Register</a></li>
+                    <li><a style="letter-spacing: 0.05em;" href="#sign_in">Demo</a></li>
                     <?php } else { ?>
                     <li><a style="letter-spacing: 0.1em;" href="#history">History</a></li>
                         <li>|</li>
@@ -83,16 +83,17 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div id="learn_more">
+
         <h1>What is conVos</h1>
         <p style="background-color: rgba(0,0,0,.5);">The quick and easy-to-use app <b style="background-color: rgba(255,0,255, 0.8);">designed for you.</b><br> conVos provides quick and responsive feedback for live conversations tailored for you.</p>
         <br><p style="background-color: rgba(0,0,0,.5);">Siri, But Better</p>
-        <a href="#sign_in" class="button">GET STARTED</a>
+        <a href="#sign_in" class="button">HOW IT WORKS</a>
     </div>
 
     <?php if (isset($_SESSION['username'])) { ?>
     <div id="history">
         <div class="tint">
-            <p>suh bruh todo</p>
+            <p> todo</p>
         </div>
     </div>
     <?php } ?>
@@ -101,25 +102,22 @@ if (!isset($_SESSION['username'])) {
     <!-- sign up -->
     <?php if (!isset($_SESSION['username'])) { ?>
     <div id="sign_in" class="wrapper">
+
         <div class="left">
             <div class="inner">
-                <h1 style="font-size:2.45em;display:inline;position:relative;right:-22.5vw;top:15vh;background-color:rgba(0,0,0,.5);">DEMO</h1>
+                <h1 style="font-size:3em;display:inline;position:relative;right:-16.5vw;top:15vh;background-color:rgba(255,255,255,.5);color:rgba(0,0,255,0.6);font-shadow: 0 0 15px rgb(0,0,255);">APP ON IOS</h1>
                 <br><br>
-                <img style="display:inline;position:relative;right:-15vw;top:25ex;border-radius:30px;" src='img/image1.gif' alt=”animated” />
+                <img style="display:inline;position:relative;right:-10vw;top:25ex;height: 25em;padding: 0 20px;" src='img/ref1.png'/>
+                <img style="display:inline;position:relative;right:-10vw;top:25ex;height: 25em;padding: 0 20px;" src='img/ref2.png'/>
             </div>
         </div>
         <div class="right">
             <div id="sign_ons" class="inner">
                 <!-- sign in / sign up -->
-                <h1 style="font-size:2.45em;display:inline;position:relative;right:-20vw;top:15vh;background-color:rgba(0,0,0,.5);">LOG IN | SIGN UP</h1>
-                <form method="post">
-                    <input style="position:relative;right:-20vw;top:25vh;" class="param" type="username" name="username" placeholder="username">
-                    <br>
-                    <input style="position:relative;right:-20vw;top:25vh;" class="param" type="password" name="password" placeholder="password">
-                    <br><br>
-                    <input formaction="scripts/login.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-13.5em; top:6em;" href="/scripts/login.php" class="button" value="LOG IN">
-                    <input formaction="scripts/register.php" type="submit" style="letter-spacing: 0.05em;position:relative; right:-15.75em; top:6em;" href="./index.php" class="button" value="SIGN UP">
-                </form>
+                <h1 style="font-size:3em;display:inline;position:relative;right:-23vw;top:15vh;background-color:rgba(255,255,255,.5);color:rgba(255,0,255,0.6);font-shadow: 15px rgb(255,0,255);">HOW IT WORKS</h1>
+                <br>
+                <p style="font-size:1.5em;position:relative;right:-20vw;top:25vh;background-color:rgba(0,0,0,.5);color:rgb(255,255,255);display: inline-block;">This app assists you by <br>passively keeping track of your <br>conversation and providing you<br> with convenient reference icons <br> made up of info snippets <br>
+                    gathered by web scraping <br> key words from your speech.</p>
             </div>
         </div>
     </div>
