@@ -42,7 +42,7 @@ if (isset($_GET['sentence'])) {
         $entities = $response->getEntities();
 
         # Instantiates a client
-        $language = new LanguageClient([
+        $language = new LanguageClient ([
             'projectId' => 'siributworse-1572669643321'
         ]);
 
