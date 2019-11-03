@@ -113,19 +113,9 @@ else if (isset($_GET['keyword'])) {
         $i++;
     }
 
+    // 2nd attempt if nothing found
     if ($i <= 10) {
         foreach ($html->find('.SALvLe .farUxc .mJ2Mod') as $par) {
-            if ($i > 10) {
-                break;
-            }
-
-            $return['headlines'][] = $par->plaintext;
-            $i++;
-        }
-    }
-
-    if ($i <= 10) {
-        foreach ($html->find('.mw') as $par) {
             if ($i > 10) {
                 break;
             }
