@@ -89,9 +89,9 @@ else if (isset($_GET['keyword'])) {
 
         // Get paragraph elements
         $return = array('headlines' => array());
-//        foreach ($html->find('div.BNeawe.s3v9rd.AP7Wnd') as $par) {
-//            $return['headlines'][] = $par->plaintext;
-//        }
+        foreach ($html->find('span.rQMQod.Xb5VRe') as $par) {
+            $return['headlines'][] = $par->plaintext;
+        }
 
         // Add id
         $return['id'] = $_GET['id'];
