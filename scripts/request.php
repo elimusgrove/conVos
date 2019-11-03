@@ -104,7 +104,7 @@ else if (isset($_GET['keyword'])) {
     // Get paragraph elements
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($html->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
+    foreach ($html->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
         if ($i > 10) {
             break;
         }
@@ -114,7 +114,7 @@ else if (isset($_GET['keyword'])) {
     }
 
     if ($i <= 10) {
-        foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
+        foreach ($html->find('.SALvLe .farUxc .mJ2Mod') as $par) {
             if ($i > 10) {
                 break;
             }
