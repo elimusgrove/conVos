@@ -102,7 +102,7 @@ else if (isset($_GET['keyword'])) {
     // Get paragraph elements
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($dom_results->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
+    foreach ($dom_results->find('.SALvLe .farUxc .mJ2Mod') as $par) {
         if ($i > 10) {
             break;
         }
@@ -113,7 +113,7 @@ else if (isset($_GET['keyword'])) {
 
     // 2nd attempt if nothing found
     if ($i <= 10) {
-        foreach ($dom_results->find('.SALvLe .farUxc .mJ2Mod') as $par) {
+        foreach ($dom_results->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
             if ($i > 10) {
                 break;
             }
