@@ -122,8 +122,7 @@ nav a:hover:before {
 /* page 2: learn_more page */
 #learn_more {
     background-image:
-        linear-gradient(0deg, rgba(0,0,200,0.4), rgba(0,0,0,0.3)), /* ghetto tint */
-        url('../img/landingpage_background4.jpg');
+        linear-gradient(0deg, rgba(255,255,255,0.1), rgba(0,0,255,0.7));
     background-size:cover;
     background-position: top;
     height: 100vh;
@@ -152,12 +151,12 @@ nav a:hover:before {
     font-size:1.5vw;
     text-decoration:none;
     color:rgb(255,0,255);
-    border:rgb(255,0,255) 3px solid;
+    border:rgb(255,0,255) 2px solid;
     padding:10px 50px;
     border-radius:30px;
     margin-top:30px;
     box-shadow: 0 0 15px rgba(255,0,255, 1);
-    background-color: rgba(255,255,255, 0.6);
+    /*background-color: rgba(255,255,255, 0.6);*/
 
     position: relative;
     bottom: 0vh;
@@ -171,7 +170,9 @@ nav a:hover:before {
 
 /* page 3: sign_in page */
 .wrapper {
-    background: url('../img/landingpage_background.jpg');
+    background-image:
+        /*linear-gradient(0deg, rgba(200,0,200, 0.2), rgba(255,255,255,0.1)),*/
+        url('../img/background4.jpg');
     background-position:top;
     position: relative;
     overflow: hidden;
@@ -204,12 +205,12 @@ nav a:hover:before {
     overflow: hidden;
 }
 .left .inner {
-    background: linear-gradient(45deg, rgba(255,0,255, 0.3), rgba(255,0,255,0.0));
+    background: linear-gradient(0deg, rgba(200,0,200, 0.5), rgba(0,0,0,0.5));
     margin-left: 9%;
     overflow: hidden;
 }
 .right .inner {
-    background: linear-gradient(-45deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.0));
+    background: linear-gradient(0deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 0, 0.5));
     margin-left: -9%;
     overflow: hidden;
 }
@@ -218,7 +219,7 @@ nav a:hover:before {
     font-size:1.5vw;
     text-decoration:none;
     color:black;
-    border:white 3px solid;
+    border:white 2px solid;
     padding:15px 30px;
     border-radius:10px;
     margin-top:30px;
@@ -228,7 +229,7 @@ nav a:hover:before {
 }
 
 #sign_ons .param:hover {
-    box-shadow: 0 0 15px rgb(200,0,255);
+    box-shadow: 0 0 15px rgb(0255,0,255);
     transition: 0.8s;
 }
 
@@ -241,14 +242,13 @@ nav a:hover:before {
     border-radius:3px;
     margin-top:10vh;
     /*box-shadow: 0 0 15px rgba(255,0,255, 1);*/
-    background-color: rgba(255,0,255, 0.25);
+    background-color: rgba(255,0,255, 0.4);
 }
 
 #sign_ons .button:hover {
-    color:rgb(0,0,255);
-    background-color: rgba(255,255,255, 1);
-    border: white 2px solid;
-    box-shadow: 0 0 15px white;
+    background-color: rgba(255,0,255, 0.9);
+    border: rgb(255,0,255) 2px solid;
+    box-shadow: 0 0 15px rgb(255,0,255);
     transition: 0.8s;
 }
 
@@ -275,25 +275,6 @@ nav a:hover:before {
     background-color: rgba(0,0,0,0.4);
     width: 80%;
     height: 100%;
-}
-
-#history .button {
-    font-size:1.5vw;
-    text-decoration:none;
-    color:white;
-    border:white 3px solid;
-    padding:10px 50px;
-    border-radius:30px;
-    margin-top:30px;
-    box-shadow: 0 0 15px white;
-    position: relative;
-    bottom: -15em;
-}
-
-#history .button:hover {
-    background:white; /* change this to foreground color */
-    color:rgb(0,0,255); /* change this to background color */
-    transition: 0.8s;
 }
 
 .ocean {

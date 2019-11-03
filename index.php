@@ -56,11 +56,12 @@ if (!isset($_SESSION['username'])) {
             <nav id="navbar">
                 <ul>
                     <li><a style="letter-spacing: 0.1em;" href="#learn_more">Learn More</a></li>
-                    <li><a style="letter-spacing: 0.1em;" href="#history">History</a></li>
-                    <li>|</li>
                     <?php if (!isset($_SESSION['username'])) { ?>
+                            <li>|</li>
                     <li><a style="letter-spacing: 0.05em;" href="#sign_in">Log In / Register</a></li>
                     <?php } else { ?>
+                    <li><a style="letter-spacing: 0.1em;" href="#history">History</a></li>
+                        <li>|</li>
                     <li><a style="letter-spacing: 0.05em;" href="./scripts/logoff.php">Log out</a></li>
                     <?php } ?>
                 </ul>
@@ -76,7 +77,6 @@ if (!isset($_SESSION['username'])) {
             <div class="wave"></div>
         </div>
 
-
         <h1 style="letter-spacing: 0.1em;">conVos</h1>
         <p style="letter-spacing: 0.05em;background-color: rgba(0,0,0,.5);">Learn more with each conversation</p>
         <a style="letter-spacing: 0.05em" href="#learn_more" class="button">LEARN MORE</a>
@@ -89,15 +89,14 @@ if (!isset($_SESSION['username'])) {
         <a href="#sign_in" class="button">GET STARTED</a>
     </div>
 
+    <?php if (isset($_SESSION['username'])) { ?>
     <div id="history">
         <div class="tint">
-            <?php if (!isset($_SESSION['username'])) { ?>
-                <a style="letter-spacing: 0.05em" href="#learn_more" class="button">PLEASE LOG IN TO USE THIS FEATURE</a>
-            <?php } else { ?>
-                <p>you are currently logged in</p>
-            <?php } ?>
+            <p>suh bruh todo</p>
         </div>
     </div>
+    <?php } ?>
+
 
     <!-- sign up -->
     <?php if (!isset($_SESSION['username'])) { ?>
@@ -112,7 +111,7 @@ if (!isset($_SESSION['username'])) {
         <div class="right">
             <div id="sign_ons" class="inner">
                 <!-- sign in / sign up -->
-                <h1 style="font-size:2.45em;display:inline;position:relative;right:-20vw;top:25vh;background-color:rgba(0,0,0,.5);">LOG IN | SIGN UP</h1>
+                <h1 style="font-size:2.45em;display:inline;position:relative;right:-20vw;top:15vh;background-color:rgba(0,0,0,.5);">LOG IN | SIGN UP</h1>
                 <form method="post">
                     <input style="position:relative;right:-20vw;top:25vh;" class="param" type="username" name="username" placeholder="username">
                     <br>
