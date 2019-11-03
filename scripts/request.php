@@ -89,12 +89,10 @@ else if (isset($_GET['keyword'])) {
 //        echo $html;
 
         // Get paragraph elements
-        $i = 0;
         $return = array('headlines' => array());
-        foreach ($html->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
-
+        foreach ($html->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
+            echo $par->plaintext . PHP_EOL;
             $return['headlines'][] = $par->plaintext;
-            $i++;
         }
 
         // Add id
