@@ -50,19 +50,6 @@ if (isset($_GET['sentence'])) {
                 continue;
             }
 
-            if (isset($_GET['test'])) {
-                # Instantiates a client
-                $language = new LanguageClient([
-                    'projectId' => 'siributworse-1572669643321'
-                ]);
-
-                $annotation = $language->analyzeSentiment('Hello, world!');
-                $sentiment = $annotation->sentiment();
-
-                var_dump($sentiment);
-                exit;
-            }
-
             // Add to return array
             $return['value'][] = array(
                 'string' => $entity->getName(),
