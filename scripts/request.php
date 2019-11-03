@@ -101,7 +101,7 @@ else if (isset($_GET['keyword'])) {
 
     $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
     $html = file_get_html($url);
-    echo $url;
+    echo $html;
 
     // Get paragraph elements
     $i = 0;
