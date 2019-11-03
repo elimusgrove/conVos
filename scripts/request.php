@@ -58,13 +58,12 @@ if (isset($_GET['sentence'])) {
             $annotation = $language->analyzeSentiment($entity->getName());
             $sentiment = $annotation->sentiment();
 
-            echo $sentiment . PHP_EOL;
-
             // Add to return array
             $return['value'][] = array(
                 'string' => $entity->getName(),
                 'id' => uniqid(),
-                'type' => EntityType::name($entity->getType()));
+                'type' => EntityType::name($entity->getType()),
+                'sentiment' => $sentiment);
         }
     } finally {
         $languageServiceClient->close();
