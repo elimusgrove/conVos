@@ -50,6 +50,19 @@ if (isset($_GET['sentence'])) {
                 continue;
             }
 
+            if (isset($_GET['test'])) {
+                # Instantiates a client
+                $language = new LanguageClient([
+                    'projectId' => 'siributworse-1572669643321'
+                ]);
+
+                $annotation = $language->analyzeSentiment('Hello, world!');
+                $sentiment = $annotation->sentiment();
+
+                var_dump($sentiment);
+                exit;
+            }
+
             // Add to return array
             $return['value'][] = array(
                 'string' => $entity->getName(),
@@ -84,21 +97,16 @@ else if (isset($_GET['keyword'])) {
 
     $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
     $html = file_get_html($url);
-    echo $html;
 
     // Get paragraph elements
-    $i = 0;
     $return = array('headlines' => array());
-    foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
-
-
+    foreach ($html->find('span.rQMQod.Xb5VRe') as $par) {
         $return['headlines'][] = $par->plaintext;
-        $i++;
     }
 
     // Add id
     $return['id'] = $_GET['id'];
 
     // Return values to app
-//    echo json_encode($return);
+    echo json_encode($return);
 }
