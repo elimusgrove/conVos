@@ -77,7 +77,6 @@ if (!isset($_SESSION['username'])) {
             <div class="wave"></div>
         </div>
 
-
         <h1 style="letter-spacing: 0.1em;">conVos</h1>
         <p style="letter-spacing: 0.05em;background-color: rgba(0,0,0,.5);">Learn more with each conversation</p>
         <a style="letter-spacing: 0.05em" href="#learn_more" class="button">LEARN MORE</a>
