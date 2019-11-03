@@ -1,8 +1,5 @@
 <?php
 
-// TODO: Insert into database on receiving a sentence
-// TODO: Update database when receiving the keywords
-
 use Google\Cloud\Language\V1\Document;
 use Google\Cloud\Language\V1\Document\Type;
 use Google\Cloud\Language\V1\LanguageServiceClient;
@@ -18,10 +15,6 @@ if (isset($_GET['sentence'])) {
 
     // Load the API
     require '/home3/hsnkwamy/public_html/vendor/autoload.php';
-
-    // Connect to database
-    $conn = mysqli_connect('hsn.kwa.mybluehost.me', 'hsnkwamy', '8Rd23K*%', 'hsnkwamy_conVo');
-
 
     // Create the Natural Language client
     $languageServiceClient = new LanguageServiceClient();
@@ -85,7 +78,7 @@ else if (isset($_GET['keyword'])) {
     $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
     $html = file_get_html($url);
 
-    // Get paragraph elements
+    // Get recent news headlines (TODO: Improve)
     $return = array('headlines' => array());
     foreach ($html->find('span.rQMQod.Xb5VRe') as $par) {
         $return['headlines'][] = $par->plaintext;
