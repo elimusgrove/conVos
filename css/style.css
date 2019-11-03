@@ -205,12 +205,12 @@ nav a:hover:before {
     overflow: hidden;
 }
 .left .inner {
-    background: linear-gradient(0deg, rgba(200,0,200, 0.4), rgba(255,0,255,0.0));
+    background: linear-gradient(0deg, rgba(200,0,200, 0.5), rgba(0,0,0,0.5));
     margin-left: 9%;
     overflow: hidden;
 }
 .right .inner {
-    background: linear-gradient(0deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.1));
+    background: linear-gradient(0deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 0, 0.5));
     margin-left: -9%;
     overflow: hidden;
 }
