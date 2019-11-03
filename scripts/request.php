@@ -83,28 +83,26 @@ else if (isset($_GET['keyword'])) {
     // Library to process scraped HTML
     require 'simple_html_dom.php';
 
-//    // Begin curl request
-//    $curl = curl_init();
-//
-//    // Set curl parameters
-//    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
-//    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-//    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-//
-//    // Execute curl request, close
-//    $result = curl_exec($curl);
-//    curl_close($curl);
-//
-//    // Load library
-//    $dom_results = new simple_html_dom();
-//    $dom_results->load($result);
+    // Begin curl request
+    $curl = curl_init();
 
-    $html = file_get_html("https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
+    // Set curl parameters
+    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    // Execute curl request, close
+    $result = curl_exec($curl);
+    curl_close($curl);
+
+    // Load library
+    $dom_results = new simple_html_dom();
+    $dom_results->load($result);
 
     // Get paragraph elements
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($html->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
+    foreach ($dom_results->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
         if ($i > 10) {
             break;
         }
@@ -115,7 +113,7 @@ else if (isset($_GET['keyword'])) {
 
     // 2nd attempt if nothing found
     if ($i <= 10) {
-        foreach ($html->find('.SALvLe .farUxc .mJ2Mod') as $par) {
+        foreach ($dom_results->find('.SALvLe .farUxc .mJ2Mod') as $par) {
             if ($i > 10) {
                 break;
             }
