@@ -75,7 +75,6 @@ else if (isset($_GET['keyword'])) {
         exit(1);
     }
 
-    echo json_encode(array('headlines'=>array('string'=>'Trump', 'id'=>'1')));
 
     // ##################################################
     // WEB SCRAPE PROCESSED ENTITIES
@@ -92,8 +91,7 @@ else if (isset($_GET['keyword'])) {
         // Get paragraph elements
         $i = 0;
         $return = array('headlines' => array());
-        foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
-
+        foreach ($html->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
 
             $return['headlines'][] = $par->plaintext;
             $i++;
@@ -104,5 +102,7 @@ else if (isset($_GET['keyword'])) {
 
         // Return values to app
         echo json_encode($return);
+    } else {
+        echo json_encode(array('headlines'=>array('string'=>'Trump', 'id'=>'1')));
     }
 }
