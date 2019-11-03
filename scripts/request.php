@@ -46,7 +46,7 @@ if (isset($_GET['sentence'])) {
 
             // Filter results based on entity type
             $type = strtolower(EntityType::name($entity->getType()));
-            if ($type != 'event' && $type != 'consumer_good' && $type != 'organization' && $type != 'person') {
+            if ($type == 'other') {
                 continue;
             }
 
@@ -54,8 +54,7 @@ if (isset($_GET['sentence'])) {
             $return['value'][] = array(
                 'string' => $entity->getName(),
                 'id' => uniqid(),
-                'type' => EntityType::name($entity->getType()),
-                'salience' => $entity->getSalience());
+                'type' => EntityType::name($entity->getType()));
         }
     } finally {
         $languageServiceClient->close();
@@ -69,7 +68,7 @@ if (isset($_GET['sentence'])) {
 
 // ##################################################
 // PROCESSING KEYWORD REQUEST
-if (isset($_GET['keyword'])) {
+else if (isset($_GET['keyword'])) {
 
     // Invalid keyword id
     if (!$_GET['id']) {
@@ -83,29 +82,15 @@ if (isset($_GET['keyword'])) {
     // Library to process scraped HTML
     require 'simple_html_dom.php';
 
-    // Begin curl request
-    $curl = curl_init();
-
-    // Set curl parameters
-    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    // Execute curl request, close
-    $result = curl_exec($curl);
-    curl_close($curl);
-
-    // Load library
-    $dom_results = new simple_html_dom();
-    $dom_results->load($result);
+    $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
+    $html = file_get_html($url);
+    echo $html;
 
     // Get paragraph elements
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
-        if ($i > 3) {
-            break;
-        }
+    foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
+
 
         $return['headlines'][] = $par->plaintext;
         $i++;
@@ -115,5 +100,5 @@ if (isset($_GET['keyword'])) {
     $return['id'] = $_GET['id'];
 
     // Return values to app
-    echo json_encode($return);
+//    echo json_encode($return);
 }
