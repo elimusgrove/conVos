@@ -124,6 +124,17 @@ else if (isset($_GET['keyword'])) {
         }
     }
 
+    if ($i <= 10) {
+        foreach ($html->find('.mw') as $par) {
+            if ($i > 10) {
+                break;
+            }
+
+            $return['headlines'][] = $par->plaintext;
+            $i++;
+        }
+    }
+
     // Add id
     $return['id'] = $_GET['id'];
 
