@@ -77,7 +77,7 @@ else if (isset($_GET['keyword'])) {
 
 
     // ##################################################
-    // WEB SCRAPE PROCESSED ENTITIESt
+    // WEB SCRAPE PROCESSED ENTITIES
 
     // Library to process scraped HTML
     if (isset($_GET['test'])) {
@@ -89,7 +89,7 @@ else if (isset($_GET['keyword'])) {
 
         // Get paragraph elements
         $return = array('headlines' => array());
-        foreach ($html->find('div.BNeawe div.s3v9rd div.AP7Wnd') as $par) {
+        foreach ($html->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
             $return['headlines'][] = $par->plaintext;
         }
 
