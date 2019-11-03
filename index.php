@@ -47,7 +47,7 @@ if (!isset($_SESSION['username'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
-    <title>conVo App</title>
+    <title>conVos App</title>
 </head>
 
 <body>
@@ -69,24 +69,44 @@ if (!isset($_SESSION['username'])) {
     </header>
 
     <div id="showcase">
-        <h1 style="letter-spacing: 0.1em;">conVo</h1>
+
+        <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+
+
+        <h1 style="letter-spacing: 0.1em;">conVos</h1>
         <p style="letter-spacing: 0.05em;background-color: rgba(0,0,0,.5);">Learn more with each conversation</p>
         <a style="letter-spacing: 0.05em" href="#learn_more" class="button">LEARN MORE</a>
     </div>
 
     <div id="learn_more">
-        <h1>What is conVo</h1>
-        <p style="background-color: rgba(0,0,0,.5);">The quick and easy-to-use app <b style="background-color: rgba(255,0,255, 0.8);">designed for you.</b><br> conVo provides quick and responsive feedback for live conversations tailored for you.</p>
+        <h1>What is conVos</h1>
+        <p style="background-color: rgba(0,0,0,.5);">The quick and easy-to-use app <b style="background-color: rgba(255,0,255, 0.8);">designed for you.</b><br> conVos provides quick and responsive feedback for live conversations tailored for you.</p>
         <br><p style="background-color: rgba(0,0,0,.5);">Siri, But Better</p>
         <a href="#sign_in" class="button">GET STARTED</a>
     </div>
 
-    <!-- Alternative Page: History -->
+    <div id="history">
+        <div class="tint">
+            <?php if (!isset($_SESSION['username'])) { ?>
+                <a style="letter-spacing: 0.05em" href="#learn_more" class="button">PLEASE LOG IN TO USE THIS FEATURE</a>
+            <?php } else { ?>
+                <p>you are currently logged in</p>
+            <?php } ?>
+        </div>
+    </div>
+
+    <!-- sign up -->
     <?php if (!isset($_SESSION['username'])) { ?>
     <div id="sign_in" class="wrapper">
         <div class="left">
             <div class="inner">
-                <h1 style="font-size:2.45em;display:inline;position:relative;right:-15vw;top:25vh;background-color:rgba(0,0,0,.5);">LOG IN | SIGN UP</h1>
+                <h1 style="font-size:2.45em;display:inline;position:relative;right:-22.5vw;top:15vh;background-color:rgba(0,0,0,.5);">DEMO</h1>
+                <br><br>
+                <img style="display:inline;position:relative;right:-15vw;top:25ex;border-radius:30px;" src='img/image1.gif' alt=”animated” />
             </div>
         </div>
         <div class="right">
