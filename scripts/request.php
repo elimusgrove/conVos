@@ -77,7 +77,7 @@ else if (isset($_GET['keyword'])) {
 
 
     // ##################################################
-    // WEB SCRAPE PROCESSED ENTITIES
+    // WEB SCRAPE PROCESSED ENTITIESt
 
     // Library to process scraped HTML
     if (isset($_GET['test'])) {
