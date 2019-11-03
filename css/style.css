@@ -2,7 +2,10 @@
     margin:0;
     padding:0;
 }
-body {
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
     margine:0;
     font-family: OCR A Std, monospace;
     font-weight: 400;
@@ -225,7 +228,7 @@ nav a:hover:before {
 }
 
 #sign_ons .param:hover {
-    box-shadow: 0 0 15px rgb(255,0,255);
+    box-shadow: 0 0 15px rgb(200,0,255);
     transition: 0.8s;
 }
 
@@ -233,18 +236,115 @@ nav a:hover:before {
     font-size:1.5vw;
     text-decoration:none;
     color:white;
-    border:rgb(255,0,255) 3px solid;
+    border:rgb(200,0,255) 2px solid;
     padding:10px 20px;
     border-radius:3px;
     margin-top:10vh;
     /*box-shadow: 0 0 15px rgba(255,0,255, 1);*/
-    background-color: rgba(255,0,255, 0.5);
+    background-color: rgba(255,0,255, 0.25);
 }
 
 #sign_ons .button:hover {
-    color:rgb(255,0,255);
-    background-color: rgba(255,255,255, 0.5);
-    border: white 3px solid;
+    color:rgb(0,0,255);
+    background-color: rgba(255,255,255, 1);
+    border: white 2px solid;
     box-shadow: 0 0 15px white;
     transition: 0.8s;
+}
+
+/* page 4: history page */
+#history {
+    background-image:
+            linear-gradient(0deg, rgba(0,0,200,0.4), rgba(0,0,0,0.3)), /* ghetto tint */
+            url('../img/landingpage_background5.jpg');
+    background-size:cover;
+    background-position: top;
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    font-size:2vw;
+    position: center;
+    text-align:center;
+}
+
+#history .tint {
+    background-color: rgba(0,0,0,0.4);
+    width: 80%;
+    height: 100%;
+}
+
+#history .button {
+    font-size:1.5vw;
+    text-decoration:none;
+    color:white;
+    border:white 3px solid;
+    padding:10px 50px;
+    border-radius:30px;
+    margin-top:30px;
+    box-shadow: 0 0 15px white;
+    position: relative;
+    bottom: -15em;
+}
+
+#history .button:hover {
+    background:white; /* change this to foreground color */
+    color:rgb(0,0,255); /* change this to background color */
+    transition: 0.8s;
+}
+
+.ocean {
+    height: 1%;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background: #015871;
+    opacity: 0.5;
+    align-items:center;
+}
+
+.wave {
+    background:
+            url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    position: absolute;
+    top: -198px;
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.75;
+}
+
+.wave:nth-of-type(2) {
+    top: -175px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.6s infinite, swell 7s ease -3s infinite;
+    opacity: 0.5;
+}
+
+.wave:nth-of-type(3) {
+    top: -175px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.6s infinite, swell 3s ease -5s infinite;
+    opacity: 0.25;
+}
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -1600px;
+    }
+}
+
+@keyframes swell {
+    0%, 100% {
+        transform: translate3d(0,-25px,0);
+    }
+    50% {
+        transform: translate3d(0,5px,0);
+    }
 }
