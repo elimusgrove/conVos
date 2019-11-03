@@ -81,8 +81,6 @@ else if (isset($_GET['keyword'])) {
 
     // Library to process scraped HTML
     if (isset($_GET['test'])) {
-        echo "here";
-
         require 'simple_html_dom.php';
 
         $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
@@ -91,7 +89,7 @@ else if (isset($_GET['keyword'])) {
 
         // Get paragraph elements
         $return = array('headlines' => array());
-        foreach ($html->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
+        foreach ($html->find('div.BNeawe div.s3v9rd div.AP7Wnd') as $par) {
             $return['headlines'][] = $par->plaintext;
         }
 
