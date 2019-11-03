@@ -69,7 +69,7 @@ if (isset($_GET['sentence'])) {
 
 // ##################################################
 // PROCESSING KEYWORD REQUEST
-if (isset($_GET['keyword'])) {
+else if (isset($_GET['keyword'])) {
 
     // Invalid keyword id
     if (!$_GET['id']) {
@@ -83,26 +83,28 @@ if (isset($_GET['keyword'])) {
     // Library to process scraped HTML
     require 'simple_html_dom.php';
 
-    // Begin curl request
-    $curl = curl_init();
+//    // Begin curl request
+//    $curl = curl_init();
+//
+//    // Set curl parameters
+//    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
+//    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+//    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+//
+//    // Execute curl request, close
+//    $result = curl_exec($curl);
+//    curl_close($curl);
+//
+//    // Load library
+//    $dom_results = new simple_html_dom();
+//    $dom_results->load($result);
 
-    // Set curl parameters
-    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    // Execute curl request, close
-    $result = curl_exec($curl);
-    curl_close($curl);
-
-    // Load library
-    $dom_results = new simple_html_dom();
-    $dom_results->load($result);
+    $html = file_get_html("https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
 
     // Get paragraph elements
     $i = 0;
     $return = array('headlines' => array());
-    foreach ($result->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
+    foreach ($html->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
         if ($i > 10) {
             break;
         }
@@ -112,7 +114,7 @@ if (isset($_GET['keyword'])) {
     }
 
     if ($i <= 10) {
-        foreach ($result->find('.SALvLe .farUxc .mJ2Mod') as $par) {
+        foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
             if ($i > 10) {
                 break;
             }
