@@ -54,8 +54,7 @@ if (isset($_GET['sentence'])) {
             $return['value'][] = array(
                 'string' => $entity->getName(),
                 'id' => uniqid(),
-                'type' => EntityType::name($entity->getType()),
-                'salience' => $entity->getSalience());
+                'type' => EntityType::name($entity->getType()));
         }
     } finally {
         $languageServiceClient->close();
@@ -83,22 +82,6 @@ else if (isset($_GET['keyword'])) {
     // Library to process scraped HTML
     require 'simple_html_dom.php';
 
-//    // Begin curl request
-//    $curl = curl_init();
-//
-//    // Set curl parameters
-//    curl_setopt($curl, CURLOPT_URL, "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']));
-//    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-//    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-//
-//    // Execute curl request, close
-//    $result = curl_exec($curl);
-//    curl_close($curl);
-//
-//    // Load library
-//    $dom_results = new simple_html_dom();
-//    $dom_results->load($result);
-
     $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
     $html = file_get_html($url);
     echo $html;
@@ -107,23 +90,11 @@ else if (isset($_GET['keyword'])) {
     $i = 0;
     $return = array('headlines' => array());
     foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
-//        if ($i > 10) {
-//            break;
-//        }
+
 
         $return['headlines'][] = $par->plaintext;
         $i++;
     }
-//
-//    // 2nd attempt if nothing found
-//    foreach ($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
-////            if ($i > 10) {
-////                break;
-////            }
-//
-//        $return['headlines'][] = $par->plaintext;
-//        $i++;
-//    }
 
     // Add id
     $return['id'] = $_GET['id'];
