@@ -100,19 +100,20 @@ else if (isset($_GET['keyword'])) {
 //    $dom_results->load($result);
 
     $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
+    $html = file_get_html($url);
     echo $url;
 
-//    // Get paragraph elements
-//    $i = 0;
-//    $return = array('headlines' => array());
-//    foreach ($dom_results->find('.SALvLe.farUxc.mJ2Mod') as $par) {
-////        if ($i > 10) {
-////            break;
-////        }
-//
-//        $return['headlines'][] = $par->plaintext;
-//        $i++;
-//    }
+    // Get paragraph elements
+    $i = 0;
+    $return = array('headlines' => array());
+    foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
+//        if ($i > 10) {
+//            break;
+//        }
+
+        $return['headlines'][] = $par->plaintext;
+        $i++;
+    }
 //
 //    // 2nd attempt if nothing found
 //    foreach ($dom_results->find('.BNeawe.s3v9rd.AP7Wnd') as $par) {
