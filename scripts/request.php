@@ -75,30 +75,34 @@ else if (isset($_GET['keyword'])) {
         exit(1);
     }
 
+    echo json_encode(array('headlines'=>array('string'=>'Trump', 'id'=>'1')));
 
     // ##################################################
     // WEB SCRAPE PROCESSED ENTITIES
 
     // Library to process scraped HTML
-    require 'simple_html_dom.php';
+    if (isset($_GET['test'])) {
 
-    $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
-    $html = file_get_html($url);
-    echo $html;
+        require 'simple_html_dom.php';
 
-    // Get paragraph elements
-    $i = 0;
-    $return = array('headlines' => array());
-    foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
+        $url = "https://www.google.com/search?q=" . str_replace(' ', '+', $_GET['keyword']);
+        $html = file_get_html($url);
+        echo $html;
+
+        // Get paragraph elements
+        $i = 0;
+        $return = array('headlines' => array());
+        foreach ($html->find('.SALvLe.farUxc.mJ2Mod') as $par) {
 
 
-        $return['headlines'][] = $par->plaintext;
-        $i++;
+            $return['headlines'][] = $par->plaintext;
+            $i++;
+        }
+
+        // Add id
+        $return['id'] = $_GET['id'];
+
+        // Return values to app
+        echo json_encode($return);
     }
-
-    // Add id
-    $return['id'] = $_GET['id'];
-
-    // Return values to app
-//    echo json_encode($return);
 }
