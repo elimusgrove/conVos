@@ -91,7 +91,6 @@ else if (isset($_GET['keyword'])) {
         // Get paragraph elements
         $return = array('headlines' => array());
         foreach ($html->find('.BNeawe .s3v9rd .AP7Wnd') as $par) {
-            echo $par->plaintext . PHP_EOL;
             $return['headlines'][] = $par->plaintext;
         }
 
